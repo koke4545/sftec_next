@@ -32,7 +32,7 @@ const Home = async ({ searchParams }: any) => {
 
 {
  
-     const apiResult_Sft_Category1List = await dataService.callMgtGetApiByCode('Sft_Category1List', {  }, {isUseCache: true});
+     const apiResult_Sft_Category1List = await dataService.callMgtGetApiByCode('Sft_Category1List', {  }, {isUseCache: false});
      
      if (apiResult_Sft_Category1List.success) {
        dataModel.responseData_Sft_Category1List = apiResult_Sft_Category1List.data || [];
