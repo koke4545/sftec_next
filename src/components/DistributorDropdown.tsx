@@ -7,7 +7,7 @@ import { useAppContext } from "@/contexts/AppContextProvider";
 const DistributorDropdown = () => {
     const appContext = useAppContext();
     const eCommerceModel = appContext.eCommerceModel;
-    const { distributorListSorted, currentDistributor, changeDistributor, setDefaultDistributorByIp } = eCommerceModel;
+    const { distributorList, currentDistributor, changeDistributor, setDefaultDistributorByIp } = eCommerceModel;
 
     const [isOpen, setIsOpen] = useState(false);
     const [isPopupOpen, setPopupOpen] = useState(false);
@@ -95,27 +95,31 @@ const DistributorDropdown = () => {
                         )}
 
                         {/* Select Another Distributor */}
-                        <li className="p-4 text-center">
+                        <li className="px-8 text-center py-8">
 
                             <button
-                                onClick={() => setPopupOpen(true)}
-                                className="bg-black text-white px-4 py-2 rounded hover:bg-gray-700 transition"
+                                onClick={() => {
+                                    setPopupOpen(true);
+                                   
+                                    
+                                }}
+                                className="bg-black text-white px-4 py-2 w-full rounded hover:bg-gray-700 transition"
                             >
                                 Select A Different Distributor
                             </button>
 
                             {isPopupOpen && (
                                 <DistributorSelectorPopup
-                                    distributors={distributorListSorted}
+                                    distributors={distributorList}
                                     currentDistributorId={currentDistributor.AppBusinessPartnerID}
-                                    onClose={() => setPopupOpen(false)}
+                                    onClose={() => {
+                                        setPopupOpen(false);
+                                        setIsOpen(false);
+                                    }}
                                     onSelectDistributor={(id) => {
                                         changeDistributor(id, true);
-                                        setPopupOpen(false);
-                                    }}
-                                    onResetDistributorByIp={() => {
-                                        setDefaultDistributorByIp();
-                                        setPopupOpen(false);
+                                        //setPopupOpen(false);
+                                        
                                     }}
                                 />
                             )}

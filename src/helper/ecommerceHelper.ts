@@ -35,7 +35,7 @@ const eCommerceHelper = {
 
         const router = useRouter();
 
-     
+
 
         interface ShoppingCartObj {
             ShoppingCartId?: string;
@@ -64,7 +64,7 @@ const eCommerceHelper = {
         const [shoppingCartId, setShoppingCartId] = useState<string | null>(null);
         const [shoppingCartObj, setShoppingCartObj] = useState<ShoppingCartObj>({ itemList: [] });
         const [distributorList, setDistributorList] = useState<Array<any>>([]);
-        const [distributorListSorted, setDistributorListSorted] = useState<Array<any>>([]);
+        //const [distributorListSorted, setDistributorListSorted] = useState<Array<any>>([]);
         const [currentDistributor, setCurrentDistributor] = useState<any>({});
 
 
@@ -446,8 +446,8 @@ const eCommerceHelper = {
             if (shoppingCartObj && shoppingCartObj.ShoppingCartId) {
 
                 const currentUrl = new URL(window.location.href);
-                let distributorIdFromUrl =currentUrl.searchParams.get('distributorid') || '';
-                console.log('distributorIdFromUrl:' + distributorIdFromUrl);               
+                let distributorIdFromUrl = currentUrl.searchParams.get('distributorid') || '';
+                console.log('distributorIdFromUrl:' + distributorIdFromUrl);
 
                 if (distributorIdFromUrl?.indexOf("-") >= 0) {
                     distributorIdFromUrl = distributorIdFromUrl.substring(distributorIdFromUrl.lastIndexOf("-") + 1);
@@ -486,11 +486,11 @@ const eCommerceHelper = {
 
 
 
-        useEffect(() => {
-            if (currentDistributor && currentDistributor.Adress3) {
-                resortDistributorList();
-            }
-        }, [currentDistributor]);
+        // useEffect(() => {
+        //     if (currentDistributor && currentDistributor.Adress3) {
+        //         resortDistributorList();
+        //     }
+        // }, [currentDistributor]);
 
 
         const saveLastDraftOrderIdOnShoppingCart = function (lastDraftOrderId?: any) {
@@ -499,9 +499,9 @@ const eCommerceHelper = {
 
             SaveCurrentUserShoppingCartData();
         }
-        
 
-        const generateOrderFromShoppingCart = function (callbackFunc?: any) {            
+
+        const generateOrderFromShoppingCart = function (callbackFunc?: any) {
 
             const generateOrderAsync = async () => {
                 setIsBusy(true);
@@ -557,7 +557,7 @@ const eCommerceHelper = {
 
         const changeDistributor = function (distributorId: any, isNeedToRedirectUrl: boolean) {
 
-            let distibutorObj = distributorList?.find((o:any) => o.AppBusinessPartnerID == distributorId);
+            let distibutorObj = distributorList?.find((o: any) => o.AppBusinessPartnerID == distributorId);
 
             if (distibutorObj) {
 
@@ -578,46 +578,46 @@ const eCommerceHelper = {
 
 
 
-        const resortDistributorList = function () {
-            if (distributorList && currentDistributor) {
-                let sameCityDistributors: any[] = [];
-                let sameProvinceDiffCityDistributors: any[] = [];
-                let sameCountryDiffProvinceDistributors: any[] = [];
-                let allOtherDistributors: any[] = [];
+        // const resortDistributorList = function () {
+        //     if (distributorList && currentDistributor) {
+        //         let sameCityDistributors: any[] = [];
+        //         let sameProvinceDiffCityDistributors: any[] = [];
+        //         let sameCountryDiffProvinceDistributors: any[] = [];
+        //         let allOtherDistributors: any[] = [];
 
-                distributorList.forEach((distributor) => {
-                    const locationCode = distributor.Adress3;
-                    const cityName = distributor.City;
+        //         distributorList.forEach((distributor) => {
+        //             const locationCode = distributor.Adress3;
+        //             const cityName = distributor.City;
 
-                    if (locationCode) {
-                        const countryCode = locationCode.substring(0, 1);
+        //             if (locationCode) {
+        //                 const countryCode = locationCode.substring(0, 1);
 
-                        if (locationCode === currentDistributor.Adress3) {
-                            if (cityName?.toLowerCase() === currentDistributor.City?.toLowerCase()) {
-                                sameCityDistributors.push(distributor);
-                            } else {
-                                sameProvinceDiffCityDistributors.push(distributor);
-                            }
-                        } else if (countryCode === currentDistributor.Country) {
-                            sameCountryDiffProvinceDistributors.push(distributor);
-                        } else {
-                            allOtherDistributors.push(distributor);
-                        }
-                    } else {
-                        allOtherDistributors.push(distributor);
-                    }
-                });
+        //                 if (locationCode === currentDistributor.Adress3) {
+        //                     if (cityName?.toLowerCase() === currentDistributor.City?.toLowerCase()) {
+        //                         sameCityDistributors.push(distributor);
+        //                     } else {
+        //                         sameProvinceDiffCityDistributors.push(distributor);
+        //                     }
+        //                 } else if (countryCode === currentDistributor.Country) {
+        //                     sameCountryDiffProvinceDistributors.push(distributor);
+        //                 } else {
+        //                     allOtherDistributors.push(distributor);
+        //                 }
+        //             } else {
+        //                 allOtherDistributors.push(distributor);
+        //             }
+        //         });
 
-                setDistributorListSorted([
-                    ...sameCityDistributors,
-                    ...sameProvinceDiffCityDistributors,
-                    ...sameCountryDiffProvinceDistributors,
-                    ...allOtherDistributors,
-                ]);
+        //         setDistributorListSorted([
+        //             ...sameCityDistributors,
+        //             ...sameProvinceDiffCityDistributors,
+        //             ...sameCountryDiffProvinceDistributors,
+        //             ...allOtherDistributors,
+        //         ]);
 
-            }
+        //     }
 
-        }
+        // }
 
         const setDefaultDistributorByIp = function () {
             const fetchDataAsync = async () => {
@@ -673,6 +673,32 @@ const eCommerceHelper = {
                                     if (distributorDto.AppBusinessPartnerID) {
                                         distributorDto.param_distributorCodeId = `${(distributorDto.Code || '').replaceAll(' ', '-').replaceAll('#', '').replaceAll('/', '')}-${distributorDto.AppBusinessPartnerID}`;
                                     }
+
+
+                                    let addressArray = [];
+
+                                    if (distributorDto.Adress1) {
+                                        addressArray.push(distributorDto.Adress1);
+                                    }
+
+                                    if (distributorDto.City) {
+                                        addressArray.push(distributorDto.City);
+                                    }
+
+                                    if (distributorDto.State) {
+                                        addressArray.push(distributorDto.State);
+                                    }
+
+                                    if (distributorDto.Country) {
+                                        addressArray.push(distributorDto.Country);
+                                    }
+
+                                    if (distributorDto.PostCode) {
+                                        addressArray.push(distributorDto.PostCode);
+                                    }
+
+                                    distributorDto.address = addressArray.join(", ");
+
                                 });
 
                                 setDistributorList(distributorsData);
@@ -819,7 +845,7 @@ const eCommerceHelper = {
             isProcessingPayment,
             PrepareLoggedInClientShoppingCartData,
             distributorList,
-            distributorListSorted,
+            //distributorListSorted,
             currentDistributor,
             changeDistributor,
             setDefaultDistributorByIp,
