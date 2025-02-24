@@ -146,8 +146,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                     </div>
                     <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-x-3 lg:gap-x-5 xl:gap-x-7 gap-y-3 xl:gap-y-5 2xl:gap-y-8">
                       {
-                        dataModel.responseData_Sft_Category1List?.filter && dataModel.responseData_Sft_Category1List?.filter((_: any, index: any) => index > 3)
-                          .map((categoryObj: any, index: any) => {
+                        dataModel.responseData_Sft_Category1List?.map((categoryObj: any, index: any) => {
                             return (
                               <Link href={`/productlist/${categoryObj.Name}-${categoryObj.Category1Id}?distributorid=${dataModel.searchParams.distributorid || ''}`} key={index} className="group box-border overflow-hidden flex rounded-md cursor-pointer ltr:pr-0 rtl:pl-0 pb-2 lg:pb-3 flex-col items-start transition duration-200 ease-in-out transform hover:-translate-y-1 md:hover:-translate-y-1.5 hover:shadow-product bg-white" role="button" title="HEATING & COOLING">
                                 <div className="flex mb-3 md:mb-3.5">
