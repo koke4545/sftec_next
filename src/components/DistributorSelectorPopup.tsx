@@ -124,11 +124,29 @@ const DistributorSelectorPopup: React.FC<DistributorSelectorPopupProps> = ({
                                     <div className="w-full flex flex-wrap lg:block">
                                         <div className="flex-auto w-[200px] lg:w-full">
                                             <div className="w-full flex border border-gray-300">
+                                                <div className="block lg:hidden px-2 py-3 w-10 h-12 border-r border-gray-200">
+                                                    <button className="w-full h-full"
+                                                        onClick={() => {
+                                                            if (navigator.geolocation) {
+                                                                navigator.geolocation.getCurrentPosition((position) => {
+                                                                    setUserLocation({
+                                                                        lat: position.coords.latitude,
+                                                                        lng: position.coords.longitude,
+                                                                    });
+                                                                });
+                                                            }
+                                                        }}>
+                                                        <svg stroke="currentColor" fill="#a6a6a6" stroke-width="0" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
+                                                            <path d="M256 32C167.67 32 96 96.51 96 176c0 128 160 304 160 304s160-176 160-304c0-79.49-71.67-144-160-144zm0 224a64 64 0 1164-64 64.07 64.07 0 01-64 64z" className="">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
                                                 <input type="text" className="flex-auto h-12 outline-none border-none px-2 py-3 lg:px-4"
                                                     value={userAddress}
                                                     onChange={(e) => setUserAddress(e.target.value)}
                                                     placeholder="Enter address or postal code or city, etc." />
-                                                <div className="px-2 py-3 w-10 h-12">
+                                                <div className="px-2 py-3 w-10 h-12 border-l border-gray-200">
                                                     <button className="w-full h-full" title="Search by address."
                                                         onClick={geocodeUserAddress}>
                                                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="magnifying-glass" className="svg-inline--fa fa-magnifying-glass w-5 text-gray-400" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -137,9 +155,10 @@ const DistributorSelectorPopup: React.FC<DistributorSelectorPopupProps> = ({
                                                         </svg>
                                                     </button>
                                                 </div>
+
                                             </div>
                                         </div>
-                                        <div className="w-10 h-12 px-3 lg:px-0 py-3 lg:w-full">
+                                        <div className="hidden lg:block h-12 px-0 py-3 w-full">
                                             <button className="flex gap-1" type="button" title="Use my location."
                                                 onClick={() => {
                                                     if (navigator.geolocation) {
@@ -209,7 +228,7 @@ const DistributorSelectorPopup: React.FC<DistributorSelectorPopupProps> = ({
                                         return (
                                             <div
                                                 key={store.AppBusinessPartnerID}
-                                                className={`p-2 cursor-pointer transition-all duration-500 ${isSelected ? "bg-gray-100" : ""
+                                                className={`px-0 lg:px-2 py-2 cursor-pointer transition-all duration-500 ${isSelected ? "bg-gray-100" : ""
                                                     }`}
                                                 onClick={() =>
                                                     setSelectedStoreLocation(store)
