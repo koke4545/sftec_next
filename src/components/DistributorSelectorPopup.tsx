@@ -107,16 +107,18 @@ const DistributorSelectorPopup: React.FC<DistributorSelectorPopupProps> = ({
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
             <div className="bg-white w-full h-full relative text-left">
                 <div className="w-full flex h-full">
-                    <div className="bg-[#f2f2f2] pl-10 pr-10 h-full w-[320px] max-w-full lg:w-[400px] 2xl:w-[600px] overflow-auto">
+                    <div className="bg-[#f2f2f2] px-2 lg:px-10 h-full w-full max-w-full lg:w-[400px] 2xl:w-[600px] overflow-auto pb-20 lg:pb-10">
                         <div className="tmx-store-locator-page-aside px-0 d-none d-md-block">
-                            <div className="pt-4 px-1">
-                                <button onClick={() => onClose()} className="text-gray-400 hover:text-black">
-                                    <FontAwesomeIcon icon={faArrowLeft} className="mr-2" /> Back
-                                </button>
+                            <div className="w-full flex lg:block">
+                                <div className="pt-2.5 lg:pt-4 px-1">
+                                    <button onClick={() => onClose()} className="text-gray-400 hover:text-black flex">
+                                        <FontAwesomeIcon icon={faArrowLeft} className="mr-2 lg:mt-1" /> <span className="hidden lg:block">Back</span>
+                                    </button>
+                                </div>
+                                <h1 className="text-lg lg:text-3xl w-full pt-2 pb-4 px-1">
+                                    Find your distributor
+                                </h1>
                             </div>
-                            <h1 className="text-3xl w-full pt-2 pb-4 px-1">
-                                Find your distributor
-                            </h1>
                             <div className="w-full">
                                 <div className="w-full">
                                     <div className="w-full flex flex-wrap lg:block">
@@ -166,7 +168,33 @@ const DistributorSelectorPopup: React.FC<DistributorSelectorPopupProps> = ({
                         </div>
                         <div className="w-full">
                             <div className="w-full">
-                                <div className="px-2 py-4 text-gray-500 font-semibold">
+                                <div className="w-full h-[200px] block lg:hidden">
+                                    {isLoaded && (
+                                        <GoogleMap
+                                            mapContainerStyle={{ width: "100%", height: "100%" }}
+                                            center={mapCenter}
+                                            zoom={5}
+                                            options={{
+                                                mapTypeControl: false, // Hides the map/satellite toggle
+                                                fullscreenControl: false, // Hides the Full Screen button
+                                            }}
+                                        >
+                                            {storeLocationsSorted.map((store: any) => (
+                                                <Marker
+                                                    key={store.id}
+                                                    position={{ lat: store.lat, lng: store.lng }}
+                                                    onClick={() => setSelectedStoreLocation(store)}
+                                                    icon={{
+                                                        url: selectedStoreLocation?.AppBusinessPartnerID === store.AppBusinessPartnerID
+                                                            ? "https://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                                                            : "http://maps.google.com/mapfiles/ms/icons/ltblue-dot.png",
+                                                    }}
+                                                />
+                                            ))}
+                                        </GoogleMap>
+                                    )}
+                                </div>
+                                <div className="px-2 pt-4 pb-3 text-gray-500 font-semibold">
                                     <span className="pr-2">
                                         {storeLocationsSorted?.length}
                                     </span>
@@ -175,7 +203,7 @@ const DistributorSelectorPopup: React.FC<DistributorSelectorPopupProps> = ({
                                     </span>
                                 </div>
                                 <div className="w-full">
-                                    {storeLocationsSorted.map((store:any) => {
+                                    {storeLocationsSorted.map((store: any) => {
                                         const isSelected = selectedStoreLocation?.AppBusinessPartnerID === store.AppBusinessPartnerID;
 
                                         return (
@@ -208,7 +236,7 @@ const DistributorSelectorPopup: React.FC<DistributorSelectorPopupProps> = ({
                                                             </div>
 
 
-                                                            <div className="flex-auto text-sm text-gray-800">
+                                                            <div className="flex-auto text-sm text-gray-800 overflow-hidden">
                                                                 <div className="w-full">{store.Code}</div>
                                                                 <div className="w-full pt-1 text-black font-semibold uppercase">
                                                                     {store.City}, {store.State}, {store.Country}
@@ -290,7 +318,7 @@ const DistributorSelectorPopup: React.FC<DistributorSelectorPopupProps> = ({
                             </div>
                         </div>
                     </div>
-                    <div className="flex-auto">
+                    <div className="flex-auto hidden lg:block">
                         <div className="w-full h-full">
                             {isLoaded && (
                                 <GoogleMap
@@ -302,7 +330,7 @@ const DistributorSelectorPopup: React.FC<DistributorSelectorPopupProps> = ({
                                         fullscreenControl: false, // Hides the Full Screen button
                                     }}
                                 >
-                                    {storeLocationsSorted.map((store:any) => (
+                                    {storeLocationsSorted.map((store: any) => (
                                         <Marker
                                             key={store.id}
                                             position={{ lat: store.lat, lng: store.lng }}
@@ -325,14 +353,14 @@ const DistributorSelectorPopup: React.FC<DistributorSelectorPopupProps> = ({
                 aria-label="Close panel"
                 onClick={onClose}
                 title="Close"
-                className="absolute inline-flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-full bg-white shadow text-gray-600 transition duration-200 focus:outline-none focus:text-gray-800 focus:shadow-md hover:text-gray-800 hover:shadow-md top-4 right-4"
+                className="hidden lg:block absolute inline-flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-full bg-white shadow text-gray-600 transition duration-200 focus:outline-none focus:text-gray-800 focus:shadow-md hover:text-gray-800 hover:shadow-md top-4 right-4"
             >
                 <svg
                     stroke="currentColor"
                     fill="currentColor"
                     strokeWidth="0"
                     viewBox="0 0 512 512"
-                    className="text-xl"
+                    className="text-xl m-auto"
                     height="1em"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"

@@ -41,7 +41,7 @@ const DistributorDropdown = () => {
             {isOpen && (
                 <>
                     <div className="fixed inset-0 bg-black opacity-25" onClick={() => setIsOpen(false)}></div>
-                    <ul className="fixed z-30 top-20 right-6 bg-white shadow-lg rounded-md w-96 max-w-full max-h-[600px] overflow-auto ring-1 ring-black ring-opacity-5">
+                    <ul className="fixed z-30 top-20 right-6 bg-white shadow-lg rounded-md w-96 max-w-full max-h-[700px] overflow-auto ring-1 ring-black ring-opacity-5">
                         <li className="p-4 border-b border-gray-200 flex justify-between items-center">
                             <h2 className="text-xl font-bold">{currentDistributor?.Code}</h2>
                             <button
@@ -82,13 +82,13 @@ const DistributorDropdown = () => {
                         </li>
 
                         {/* Office Hours (if available) */}
-                        {currentDistributor?.OfficeHour_30654 && (
+                        {currentDistributor?.OfficeHour && (
                             <li className="p-4 flex items-center border-b border-gray-200">
                                 <i className="fas fa-clock text-gray-500 text-lg mr-3"></i>
                                 <div>
                                     <h5 className="text-sm font-bold">Office Hours</h5>
                                     <p className="text-sm whitespace-pre-line">
-                                        {currentDistributor.OfficeHour_30654}
+                                        {currentDistributor.OfficeHour}
                                     </p>
                                 </div>
                             </li>
