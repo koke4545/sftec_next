@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from "next/image";
 import { useAppContext } from '@/contexts/AppContextProvider';
 import appHelper from '@/helper/apphelper';
-
+import DistributorCurrencyCode from './DistributorCurrencyCode';
 
 
 
@@ -14,9 +14,6 @@ const ShoppingCartPopup = ({ onClose }: { onClose: any }) => {
     const { error, setError, isBusy, setIsBusy } = appContext;
     
     const eCommerceModel = appContext.eCommerceModel
-
-
-    const [distributorCurrencyCode, setDistributorCurrencyCode] = useState('USD');
 
 
     const {
@@ -111,7 +108,7 @@ const ShoppingCartPopup = ({ onClose }: { onClose: any }) => {
                                                     {cartItemObj.description}
                                                 </a>
                                                 <span className="text-sm text-gray-400 mb-2.5 cursor-pointer" onClick={() => openProductDetail(cartItemObj.skuNo)}>
-                                                    Price: {distributorCurrencyCode} ${cartItemObj.price.toFixed(2) || 0.0}
+                                                    Price: <DistributorCurrencyCode/> ${cartItemObj.price.toFixed(2) || 0.0}
                                                 </span>
                                                 <div className="flex items-end justify-between">
                                                     <div className="group flex items-center justify-between rounded-md overflow-hidden flex-shrink-0 h-8 md:h-9 shadow-navigation bg-heading">
@@ -136,7 +133,7 @@ const ShoppingCartPopup = ({ onClose }: { onClose: any }) => {
                                                             </svg>
                                                         </button>
                                                     </div>
-                                                    <span className="text-sm font-semibold leading-5 md:text-base text-heading">{distributorCurrencyCode} ${cartItemObj.subTotal}</span>
+                                                    <span className="text-sm font-semibold leading-5 md:text-base text-heading"><DistributorCurrencyCode/> ${cartItemObj.subTotal}</span>
                                                 </div>
                                                 {cartItemObj.availableQty !== undefined && cartItemObj.selectedQuantity > cartItemObj.availableQty && (
                                                     <div className="text-gray-400 text-xs p-1">
@@ -176,7 +173,7 @@ const ShoppingCartPopup = ({ onClose }: { onClose: any }) => {
                                 </span>
                                 <span className="rtl:mr-auto ltr:ml-auto flex-shrink-0 -mt-0.5 py-0.5 flex">
                                     <span className="ltr:border-l rtl:border-r border-white ltr:pr-5 rtl:pl-5 py-0.5"></span>
-                                    {distributorCurrencyCode} ${parseFloat(shoppingCartObj.subTotal || 0).toFixed(2)}
+                                    <DistributorCurrencyCode/> ${parseFloat(shoppingCartObj.subTotal || 0).toFixed(2)}
                                 </span>
                             </a>
                             {!userSession.isLoggedIn && shoppingCartObj?.itemList.length > 0 && (

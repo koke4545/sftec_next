@@ -58,7 +58,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                     <div className="font-semibold text-sm sm:text-base mt-1.5 flex flex-wrap gap-x-2 lg:text-lg lg:mt-2.5 text-heading">
                       {loopItemObj.IsVisiblePrice == 'Yes' && (
                          <span className="">
-                          ${loopItemObj.UnitPriceCAD}
+                          {loopItemObj.CurrencyCode || ''} ${loopItemObj.UnitPriceOnDistributorCurrency}
                        </span>
                       )}
                     </div>

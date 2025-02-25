@@ -3,6 +3,7 @@ import Link from "next/link";
 import ImageViewer from "@/components/ImageViewer";
 import AddToShoppingCartButton from "@/components/AddToShoppingCartButton";
 import SendMesssageButton from "@/components/SendMesssageButton";
+import DistributorCurrencyCode from "@/components/DistributorCurrencyCode";
 
 export default function PageMarkup({ dataModel }: { dataModel: any }) {
   const images = [];
@@ -73,10 +74,10 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                       <div className="flex items-center">
                         {dataModel.responseData_GetAppForm9787_SFTProduct.IsVisiblePrice_30951 == 1 && (
                         <div className="flex items-center">
-                          <div className="text-heading font-bold text-base md:text-xl lg:text-2xl 2xl:text-4xl ltr:pr-2 rtl:pl-2 ltr:md:pr-0 rtl:md:pl-0 ltr:lg:pr-2 rtl:lg:pl-2 ltr:2xl:pr-0 rtl:2xl:pl-0">
-                            {distributorCurrencyCode} ${(dataModel.responseData_GetAppForm9787_SFTProduct.UnitPriceOnDistributorCurrency_30864 || 0).toFixed(2)}
+                          <div className="text-heading font-bold text-base md:text-xl lg:text-2xl 2xl:text-3xl pr-2 rtl:pl-2 md:pr-0 rtl:md:pl-0 lg:pr-2 rtl:lg:pl-2 2xl:pr-0 rtl:2xl:pl-0">
+                            <DistributorCurrencyCode/> ${(dataModel.responseData_GetAppForm9787_SFTProduct.UnitPriceOnDistributorCurrency_30864 || 0).toFixed(2)}
                           </div>
-                          <span ng-if="dataModel.currentFormData.DictOneToOneFields['PriceUnit']" className="font-segoe text-gray-600 text-sm md:text-base lg:text-lg xl:text-xl ltr:pl-2 rtl:pr-2">
+                          <span ng-if="dataModel.currentFormData.DictOneToOneFields['PriceUnit']" className="font-segoe text-gray-600 text-sm md:text-base lg:text-lg xl:text-xl pl-2 rtl:pr-2">
                             / {dataModel.responseData_GetAppForm9787_SFTProduct.PriceUnit || 'Unit'}
                           </span>
                         </div>
@@ -122,7 +123,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                         && dataModel.responseData_GetAppForm9787_SFTProduct.IsPublished_30841 == 1
                         && dataModel.responseData_GetAppForm9787_SFTProduct.IsOnline_30842 == 1 &&
                         (
-                  <div className="flex items-center gap-x-4 ltr:md:pr-32 rtl:md:pl-32 ltr:lg:pr-12 rtl:lg:pl-12 ltr:2xl:pr-32 rtl:2xl:pl-32 ltr:3xl:pr-48 rtl:3xl:pl-48 border-b border-gray-300 py-8">
+                  <div className="flex items-center gap-x-4 md:pr-32 rtl:md:pl-32 lg:pr-12 rtl:lg:pl-12 2xl:pr-32 rtl:2xl:pl-32 3xl:pr-48 rtl:3xl:pl-48 border-b border-gray-300 py-8">
                     <div className="text-[13px] md:text-sm leading-4 flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent placeholder-white focus-visible:outline-none focus:outline-none rounded-md h-12 px-5 bg-heading text-white py-2 transform-none normal-case hover:text-white hover:bg-gray-600 hover:shadow-cart w-full md:w-6/12 xl:w-full bg-gray-400 hover:bg-gray-400" style={{backgroundColor: '#54ac5b', borderRadius: '24px', maxWidth: '250px'}}>
                       <AddToShoppingCartButton cartitem={dataModel.cartItem} className="">
                       </AddToShoppingCartButton>
