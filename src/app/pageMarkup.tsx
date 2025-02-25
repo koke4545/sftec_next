@@ -29,7 +29,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                             <Link href={`/productlist/${dataModel.responseData_Sft_Category1List[0]?.Name}-${dataModel.responseData_Sft_Category1List[0].Category1Id}?distributorid=${dataModel.searchParams?.distributorid || ''}`} className="flex w-full h-full group box-border overflow-hidden cursor-pointer items-start transition duration-200 ease-in-out transform hover:-translate-y-1 md:hover:-translate-y-1.5 hover:shadow-product bg-white" title="SFT-Bar®GFRP REBAR">
                               <div className="w-full h-full">
                                 <div className="w-full h-full bg-no-repeat bg-center bg-cover">
-                                  <img width={800} height={600} alt="" className="w-full h-full bg-cover object-cover" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetLatestFile.aspx?FileId=${dataModel.responseData_Sft_Category1List[0]?.Image}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} />
+                                  <Image width={800} height={600} alt="" className="w-full h-full bg-cover object-cover" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetRegularImage.aspx?FileId=${dataModel.responseData_Sft_Category1List[0]?.Image}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} />
                                 </div>
                               </div>
                               <div className="absolute inset-0 bg-black opacity-15 transition duration-200 hover:opacity-40">
@@ -44,7 +44,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                               <Link href={`/productlist/${dataModel.responseData_Sft_Category1List[1]?.Name}-${dataModel.responseData_Sft_Category1List[1].Category1Id}?distributorid=${dataModel.searchParams.distributorid || ''}`} className="flex w-full h-full group box-border overflow-hidden cursor-pointer items-start transition duration-200 ease-in-out transform hover:-translate-y-1 md:hover:-translate-y-1.5 hover:shadow-product bg-white" title="SFTec PRODUCTS">
                                 <div className="w-full h-full">
                                   <div className="w-full h-full bg-no-repeat bg-center bg-cover">
-                                    <img width={800} height={600} alt="" className="w-full h-full bg-cover object-cover" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetLatestFile.aspx?FileId=${dataModel.responseData_Sft_Category1List[1]?.Image}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} />
+                                    <Image width={800} height={600} alt="" className="w-full h-full bg-cover object-cover" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetRegularImage.aspx?FileId=${dataModel.responseData_Sft_Category1List[1]?.Image}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} />
                                   </div>
                                 </div>
                                 <div className="absolute inset-0 bg-black opacity-15 transition duration-200 hover:opacity-40">
@@ -59,7 +59,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                 <Link href={`/productlist/${dataModel.responseData_Sft_Category1List[2]?.Name}-${dataModel.responseData_Sft_Category1List[2].Category1Id}?distributorid=${dataModel.searchParams.distributorid || ''}`} className="flex w-full h-full group box-border overflow-hidden cursor-pointer items-start transition duration-200 ease-in-out transform hover:-translate-y-1 md:hover:-translate-y-1.5 hover:shadow-product bg-white" title="BUILDING MATERIALS">
                                   <div className="w-full h-full">
                                     <div className="w-full h-full bg-no-repeat bg-center bg-cover">
-                                      <img width={800} height={600} alt="" className="w-full h-full bg-cover object-cover" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetLatestFile.aspx?FileId=${dataModel.responseData_Sft_Category1List[2]?.Image}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} />
+                                      <Image width={800} height={600} alt="" className="w-full h-full bg-cover object-cover" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetRegularImage.aspx?FileId=${dataModel.responseData_Sft_Category1List[2]?.Image}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} />
                                     </div>
                                   </div>
                                   <div className="absolute inset-0 bg-black opacity-15 transition duration-200 hover:opacity-40">
@@ -73,7 +73,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                 <Link href={`/productlist/${dataModel.responseData_Sft_Category1List[3]?.Name}-${dataModel.responseData_Sft_Category1List[3].Category1Id}?distributorid=${dataModel.searchParams.distributorid || ''}`} className="flex w-full h-full group box-border overflow-hidden cursor-pointer items-start transition duration-200 ease-in-out transform hover:-translate-y-1 md:hover:-translate-y-1.5 hover:shadow-product bg-white" title="CONCRETE & MASONRY">
                                   <div className="w-full h-full">
                                     <div className="w-full h-full bg-no-repeat bg-center bg-cover">
-                                      <img width={800} height={600} alt="" className="w-full h-full bg-cover object-cover" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetLatestFile.aspx?FileId=${dataModel.responseData_Sft_Category1List[3]?.Image}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} />
+                                      <Image width={800} height={600} alt="" className="w-full h-full bg-cover object-cover" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetRegularImage.aspx?FileId=${dataModel.responseData_Sft_Category1List[3]?.Image}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} />
                                     </div>
                                   </div>
                                   <div className="absolute inset-0 bg-black opacity-15 transition duration-200 hover:opacity-40">
@@ -93,7 +93,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                             <Link href={`/productlist/${dataModel.responseData_Sft_Category1List[0]?.Name}-${dataModel.responseData_Sft_Category1List[0].Category1Id}?distributorid=${dataModel.searchParams.distributorid || ''}`} className="flex w-full group box-border overflow-hidden cursor-pointer items-start transition duration-200 ease-in-out transform hover:-translate-y-1 md:hover:-translate-y-1.5 hover:shadow-product bg-white" title="SFT-Bar®GFRP REBAR">
                               <div className="w-full">
                                 <div className="w-full bg-no-repeat bg-center bg-cover h-[250px]">
-                                  <img width={800} height={600} alt="" className="w-full h-full bg-cover object-cover" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetLatestFile.aspx?FileId=${dataModel.responseData_Sft_Category1List[0]?.Image}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} />
+                                  <Image width={800} height={600} alt="" className="w-full h-full bg-cover object-cover" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetRegularImage.aspx?FileId=${dataModel.responseData_Sft_Category1List[0]?.Image}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} />
                                 </div>
                               </div>
                               <div className="absolute inset-0 bg-black opacity-15 transition duration-200 hover:opacity-40">
@@ -107,7 +107,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                             <Link href={`/productlist/${dataModel.responseData_Sft_Category1List[1]?.Name}-${dataModel.responseData_Sft_Category1List[1].Category1Id}?distributorid=${dataModel.searchParams.distributorid || ''}`} className="flex w-full group box-border overflow-hidden cursor-pointer items-start transition duration-200 ease-in-out transform hover:-translate-y-1 md:hover:-translate-y-1.5 hover:shadow-product bg-white" title="SFTec PRODUCTS">
                               <div className="w-full">
                                 <div className="w-full bg-no-repeat bg-center bg-cover h-[250px]">
-                                  <img width={800} height={600} alt="" className="w-full h-full bg-cover object-cover" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetLatestFile.aspx?FileId=${dataModel.responseData_Sft_Category1List[1]?.Image}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} />
+                                  <Image width={800} height={600} alt="" className="w-full h-full bg-cover object-cover" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetRegularImage.aspx?FileId=${dataModel.responseData_Sft_Category1List[1]?.Image}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} />
                                 </div>
                               </div>
                               <div className="absolute inset-0 bg-black opacity-15 transition duration-200 hover:opacity-40">
@@ -121,7 +121,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                             <Link href={`/productlist/${dataModel.responseData_Sft_Category1List[2]?.Name}-${dataModel.responseData_Sft_Category1List[2].Category1Id}?distributorid=${dataModel.searchParams.distributorid || ''}`} className="flex w-full group box-border overflow-hidden cursor-pointer items-start transition duration-200 ease-in-out transform hover:-translate-y-1 md:hover:-translate-y-1.5 hover:shadow-product bg-white" title="BUILDING MATERIALS">
                               <div className="w-full">
                                 <div className="w-full bg-no-repeat bg-center bg-cover h-[250px]">
-                                  <img width={800} height={600} alt="" className="w-full h-full bg-cover object-cover" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetLatestFile.aspx?FileId=${dataModel.responseData_Sft_Category1List[2]?.Image}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} />
+                                  <Image width={800} height={600} alt="" className="w-full h-full bg-cover object-cover" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetRegularImage.aspx?FileId=${dataModel.responseData_Sft_Category1List[2]?.Image}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} />
                                 </div>
                               </div>
                               <div className="absolute inset-0 bg-black opacity-15 transition duration-200 hover:opacity-40">
@@ -135,7 +135,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                             <Link href={`/productlist/${dataModel.responseData_Sft_Category1List[3]?.Name}-${dataModel.responseData_Sft_Category1List[3].Category1Id}?distributorid=${dataModel.searchParams.distributorid || ''}`} className="flex w-full group box-border overflow-hidden cursor-pointer items-start transition duration-200 ease-in-out transform hover:-translate-y-1 md:hover:-translate-y-1.5 hover:shadow-product bg-white" title="CONCRETE & MASONRY">
                               <div className="w-full">
                                 <div className="w-full bg-no-repeat bg-center bg-cover h-[250px]">
-                                  <img width={800} height={600} alt="" className="w-full h-full bg-cover object-cover" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetLatestFile.aspx?FileId=${dataModel.responseData_Sft_Category1List[3]?.Image}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} />
+                                  <Image width={800} height={600} alt="" className="w-full h-full bg-cover object-cover" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetRegularImage.aspx?FileId=${dataModel.responseData_Sft_Category1List[3]?.Image}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} />
                                 </div>
                               </div>
                               <div className="absolute inset-0 bg-black opacity-15 transition duration-200 hover:opacity-40">
@@ -164,9 +164,9 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                     <div className="flex mb-3 md:mb-3.5">
                                       <span style={{ boxSizing: 'border-box', display: 'inline-block', overflow: 'hidden', width: 'initial', height: 'initial', background: 'none', opacity: '1', border: '0px', margin: '0px', padding: '0px', position: 'relative', maxWidth: '100%' }} className="">
                                         <span style={{ boxSizing: 'border-box', display: 'block', width: 'initial', height: 'initial', background: 'none', opacity: '1', border: '0px', margin: '0px', padding: '0px', maxWidth: '100%' }} className="">
-                                          <img width={800} height={600} alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27340%27%20height=%27440%27/%3e" style={{ display: 'block', maxWidth: '100%', width: 'initial', height: 'initial', background: 'none', opacity: '1', border: '0px', margin: '0px', padding: '0px' }} className="" />
+                                          <Image width={800} height={600} alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27340%27%20height=%27440%27/%3e" style={{ display: 'block', maxWidth: '100%', width: 'initial', height: 'initial', background: 'none', opacity: '1', border: '0px', margin: '0px', padding: '0px' }} className="" />
                                         </span>
-                                        <img width={800} height={600} alt="" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetLatestFile.aspx?FileId=${categoryObj.Image}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} className="bg-gray-300 object-cover rounded-s-md w-full transition duration-200 ease-in rounded-md group-hover:rounded-b-none object-cover" style={{ position: 'absolute', inset: '0px', boxSizing: 'border-box', padding: '0px', border: 'none', margin: 'auto', display: 'block', width: '0px', height: '0px', minWidth: '100%', maxWidth: '100%', minHeight: '100%', maxHeight: '100%' }} />
+                                        <Image width={800} height={600} alt="" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetRegularImage.aspx?FileId=${categoryObj.Image}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} className="bg-gray-300 object-cover rounded-s-md w-full transition duration-200 ease-in rounded-md group-hover:rounded-b-none object-cover" style={{ position: 'absolute', inset: '0px', boxSizing: 'border-box', padding: '0px', border: 'none', margin: 'auto', display: 'block', width: '0px', height: '0px', minWidth: '100%', maxWidth: '100%', minHeight: '100%', maxHeight: '100%' }} />
                                         <noscript className="">
                                         </noscript>
                                       </span>
