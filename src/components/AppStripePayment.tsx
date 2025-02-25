@@ -28,7 +28,7 @@ export default function AppStripePayment({ orderid, amount }: { orderid: string,
         options={{
           mode: "payment",
           amount: appHelper.convertToSubcurrency(amount),
-          currency: "usd",
+          currency: "cad",
         }}
       >
         <AppStripePaymentForm orderid={orderid} amount={amount} />

@@ -27,19 +27,26 @@ const productdetail = async ({ params, searchParams }: any) => {
   const headersList = headers();    
   const dataModel: { [key: string]: any } = appHelper.initializePageDataModel('productdetail', params, searchParams, headersList);
  
+  dataModel.responseData_RelatedProducts = [];
 
   /* Start of Mgt Get Api Call */
 
-
-  {
-    
+  {    
     const apiResult_GetAppForm9787_SFTProduct = await dataService.callMgtGetApiByCode('GetAppForm9787_SFTProduct', { 'id': dataModel.params.productid_id, }, { isUseCache: true });
     if (apiResult_GetAppForm9787_SFTProduct.success) {
-      dataModel.responseData_GetAppForm9787_SFTProduct = apiResult_GetAppForm9787_SFTProduct.data || {};
-
-      // console.log('DynamicLabel: ');      
-      // console.log(JSON.stringify(dataModel.responseData_GetAppForm9787_SFTProduct.DynamicLabel));
+      dataModel.responseData_GetAppForm9787_SFTProduct = apiResult_GetAppForm9787_SFTProduct.data || {};      
     }
+  }
+
+  
+  {
+    if (dataModel.responseData_GetAppForm9787_SFTProduct?.Type)
+    {
+      const apiResult_Sft_ProductSearch = await dataService.callMgtGetApiByCode('Sft_ProductSearch', { 'Catalog1': '', 'Catalog2': '', 'Catalog3': '', 'ProductType': '', 'DistributorId': dataModel.searchParams.distributorid_id, 'ProductName': '', 'Brand': '', 'Department': '', 'Type': dataModel.responseData_GetAppForm9787_SFTProduct?.Type,  }, {isUseCache: true});
+      if (apiResult_Sft_ProductSearch.success) {
+        dataModel.responseData_RelatedProducts = apiResult_Sft_ProductSearch.data || [];
+      }
+    }    
   }
 
   /* End of Mgt Get Api Call */
