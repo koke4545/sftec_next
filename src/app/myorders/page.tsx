@@ -1,5 +1,5 @@
 
-import PageMarkup from './pageMarkup';  
+import PageMarkup from './pageMarkup';
 import { createDataService } from '@/services/dataservice';
 import { callMgtGetApiByCode, callMgtPostApiByCode } from '@/services/mgtdataservice';
 import appHelper from '@/helper/apphelper';
@@ -20,24 +20,27 @@ export const metadata: Metadata = {
   }
 };
 
-const MyOrders = async({ params, searchParams }: any) => {
+const MyOrders = async ({ params, searchParams }: any) => {
 
   const dataService = createDataService();
-  const headersList = headers();    
+  const headersList = headers();
 
   const dataModel: { [key: string]: any } = appHelper.initializePageDataModel('MyOrders', params, searchParams, headersList);
 
   /* Start of Mgt Get Api Call */
-    
-  
-{
-     const apiResult_Sft_GetOrders = await dataService.callMgtGetApiByCode('Sft_GetOrders', { 'OrderId': '', 'AppCreatedDate': '', 'OrderStatus': 5,  }, {isUseCache: false});
-     if (apiResult_Sft_GetOrders.success) {
-       dataModel.responseData_Sft_GetOrders = apiResult_Sft_GetOrders.data || [];
-     }
-}
 
-/* End of Mgt Get Api Call */
+
+  {
+    dataModel.responseData_Sft_GetOrders = [];
+    if (searchParams?.sessionid) {
+      const apiResult_Sft_GetOrders = await dataService.callMgtGetApiByCode('Sft_GetOrders', { 'OrderId': '', 'AppCreatedDate': '', 'OrderStatus': 5, }, { isUseCache: false, sessionId: searchParams?.sessionid || null });
+      if (apiResult_Sft_GetOrders.success) {
+        dataModel.responseData_Sft_GetOrders = apiResult_Sft_GetOrders.data || [];
+      }
+    }
+  }
+
+  /* End of Mgt Get Api Call */
 
 
 
@@ -62,10 +65,10 @@ const MyOrders = async({ params, searchParams }: any) => {
 
   metadata.openGraph = {
     title: metadata.title,
-    description: metadata.description,   
+    description: metadata.description,
     images: [],
-  };  
-  
+  };
+
   /*** Start of metadata.openGraph.url ***/
   metadata.openGraph.url = ``;
   /*** End of metadata.openGraph.url ***/
@@ -78,4 +81,3 @@ const MyOrders = async({ params, searchParams }: any) => {
 
 export default MyOrders;
 
-    

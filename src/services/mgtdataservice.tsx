@@ -8,7 +8,13 @@ const esiteId = process.env.NEXT_PUBLIC_SITE_ID;
 
 export async function callMgtGetApiByCode(mgtApiCode: any, dictParamNameAndValue: object, options: any): Promise<DataServiceResultDto> {
     try {
-        let apiUrl = `${mgtApiBaseUrl}/${mgtApiCode}?CurrentUserSessionId=${ANONYMOUS_SESSION_ID}`;
+        let sessionId = ANONYMOUS_SESSION_ID;
+
+        if (options && options.sessionId) {
+            sessionId = options.sessionId;
+        }
+
+        let apiUrl = `${mgtApiBaseUrl}/${mgtApiCode}?CurrentUserSessionId=${sessionId}`;
 
        // console.log('Api Url:' + apiUrl);
 
@@ -42,7 +48,13 @@ export async function callMgtGetApiByCode(mgtApiCode: any, dictParamNameAndValue
 
 export async function callMgtPostApiByCode(mgtApiCode: any, payloadData: object, options: any): Promise<DataServiceResultDto> {
     try {
-        let apiUrl = `${mgtApiBaseUrl}/${mgtApiCode}?CurrentUserSessionId=${ANONYMOUS_SESSION_ID}`;
+        let sessionId = ANONYMOUS_SESSION_ID;
+
+        if (options && options.sessionId) {
+            sessionId = options.sessionId;
+        }
+
+        let apiUrl = `${mgtApiBaseUrl}/${mgtApiCode}?CurrentUserSessionId=${sessionId}`;
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {

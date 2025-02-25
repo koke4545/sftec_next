@@ -36,6 +36,9 @@ const productdetail = async ({ params, searchParams }: any) => {
     const apiResult_GetAppForm9787_SFTProduct = await dataService.callMgtGetApiByCode('GetAppForm9787_SFTProduct', { 'id': dataModel.params.productid_id, }, { isUseCache: true });
     if (apiResult_GetAppForm9787_SFTProduct.success) {
       dataModel.responseData_GetAppForm9787_SFTProduct = apiResult_GetAppForm9787_SFTProduct.data || {};
+
+      // console.log('DynamicLabel: ');      
+      // console.log(JSON.stringify(dataModel.responseData_GetAppForm9787_SFTProduct.DynamicLabel));
     }
   }
 
@@ -58,8 +61,11 @@ const productdetail = async ({ params, searchParams }: any) => {
 
     const apiResult_GetAppForm9787_SFTProduct = await callMgtPostApiByCode(process.env.NEXT_PUBLIC_APICODE_POST_PRODUCT, payloadData, {});
 
-    if (apiResult_GetAppForm9787_SFTProduct.success) {
+    if (apiResult_GetAppForm9787_SFTProduct.success) {      
+
       dataModel.responseData_GetAppForm9787_SFTProduct = apiResult_GetAppForm9787_SFTProduct.data || {};
+      dataModel.responseData_GetAppForm9787_SFTProduct.DynamicLabel = payloadData.DynamicLabel;
+      
     }
 
   }

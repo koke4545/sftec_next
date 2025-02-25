@@ -41,13 +41,13 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
 
                 <div className="xl:px-32 2xl:px-44 3xl:px-56 py-16 lg:py-20">
                     {
-                        dataModel.searchParams?.myorders == '1' && (
+                        dataModel.searchParams?.myorders == '1' &&  dataModel.searchParams?.sessionid && (
 
                             <div className="pb-8">
                                 <div className="flex items-center chawkbazarBreadcrumb">
                                     <ol className="flex items-center w-full overflow-hidden">
                                         <li className="text-sm text-body px-2.5 transition duration-200 ease-in first:pl-0 rtl:first:pr-0 last:pr-0 rtl:last:pl-0 hover:text-heading">
-                                            <Link href={`/myorders?distributorid=${dataModel.searchParams.distributorid || ''}`}
+                                            <Link href={`/myorders?distributorid=${dataModel.searchParams.distributorid || ''}&sessionid=${dataModel.searchParams?.sessionid}`}
                                                 className="underline hover:no-underline cursor-pointer">
                                                 <i className="fa fa-arrow-left mr-2"></i>
                                                 Go To My Orders

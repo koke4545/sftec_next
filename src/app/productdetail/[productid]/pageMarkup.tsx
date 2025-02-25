@@ -183,7 +183,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                           {dataModel.responseData_GetAppForm9787_SFTProduct.Width && (
                       <li className="">
                         <span className="font-semibold text-heading inline-block pr-2">
-                          Width:
+                        {dataModel.responseData_GetAppForm9787_SFTProduct.DynamicLabel?.Width___30390 || 'Width'}:
                         </span>
                         {dataModel.responseData_GetAppForm9787_SFTProduct.Width}
                       </li>
@@ -191,7 +191,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                           {dataModel.responseData_GetAppForm9787_SFTProduct.Length && (
                       <li className="">
                         <span className="font-semibold text-heading inline-block pr-2">
-                          Length:
+                        {dataModel.responseData_GetAppForm9787_SFTProduct.DynamicLabel?.Length___30391 || 'Length'}:
                         </span>
                         {dataModel.responseData_GetAppForm9787_SFTProduct.Length}
                       </li>
@@ -199,7 +199,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                           {dataModel.responseData_GetAppForm9787_SFTProduct.Diameter && (
                       <li className="">
                         <span className="font-semibold text-heading inline-block pr-2">
-                          Diameter:
+                        {dataModel.responseData_GetAppForm9787_SFTProduct.DynamicLabel?.Diameter___30392 || 'Diameter'}:
                         </span>
                         {dataModel.responseData_GetAppForm9787_SFTProduct.Diameter}
                       </li>
@@ -207,7 +207,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                           {dataModel.responseData_GetAppForm9787_SFTProduct.PlateDiameter && (
                       <li className="">
                         <span className="font-semibold text-heading inline-block pr-2">
-                          PlateDiameter:
+                        {dataModel.responseData_GetAppForm9787_SFTProduct.DynamicLabel?.PlateDiameter___30393 || 'Plate Diameter'}:
                         </span>
                         {dataModel.responseData_GetAppForm9787_SFTProduct.PlateDiameter}
                       </li>
@@ -215,7 +215,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                           {dataModel.responseData_GetAppForm9787_SFTProduct.Dimension && (
                       <li className="">
                         <span className="font-semibold text-heading inline-block pr-2">
-                          Dimension:
+                        {dataModel.responseData_GetAppForm9787_SFTProduct.DynamicLabel?.Dimension___30394 || 'Dimension'}:
                         </span>
                         {dataModel.responseData_GetAppForm9787_SFTProduct.Dimension}
                       </li>
@@ -223,7 +223,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                           {dataModel.responseData_GetAppForm9787_SFTProduct.Space && (
                       <li className="">
                         <span className="font-semibold text-heading inline-block pr-2">
-                          Space:
+                        {dataModel.responseData_GetAppForm9787_SFTProduct.DynamicLabel?.Space___30395 || 'Space'}:
                         </span>
                         {dataModel.responseData_GetAppForm9787_SFTProduct.Space}
                       </li>
@@ -231,7 +231,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                           {dataModel.responseData_GetAppForm9787_SFTProduct.Density && (
                       <li className="">
                         <span className="font-semibold text-heading inline-block pr-2">
-                          Density:
+                        {dataModel.responseData_GetAppForm9787_SFTProduct.DynamicLabel?.Density___30396 || 'Density'}:
                         </span>
                         {dataModel.responseData_GetAppForm9787_SFTProduct.Density}
                       </li>
@@ -239,7 +239,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                           {dataModel.responseData_GetAppForm9787_SFTProduct.Color && (
                       <li className="">
                         <span className="font-semibold text-heading inline-block pr-2">
-                          Color:
+                        {dataModel.responseData_GetAppForm9787_SFTProduct.DynamicLabel?.Color___30397 || 'Color'}:
                         </span>
                         {dataModel.responseData_GetAppForm9787_SFTProduct.Color}
                       </li>
@@ -247,7 +247,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                           {dataModel.responseData_GetAppForm9787_SFTProduct.CrossSectionArea && (
                       <li className="">
                         <span className="font-semibold text-heading inline-block pr-2">
-                          CrossSectionArea:
+                        {dataModel.responseData_GetAppForm9787_SFTProduct.DynamicLabel?.CrossSectionArea___30399 || 'Cross Section Area'}:
                         </span>
                         {dataModel.responseData_GetAppForm9787_SFTProduct.CrossSectionArea}
                       </li>
@@ -255,11 +255,12 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                           {dataModel.responseData_GetAppForm9787_SFTProduct.Weight && (
                       <li className="">
                         <span className="font-semibold text-heading inline-block pr-2">
-                          Weight:
+                        {dataModel.responseData_GetAppForm9787_SFTProduct.DynamicLabel?.Weight___30398 || 'Weight'}:
                         </span>
                         {dataModel.responseData_GetAppForm9787_SFTProduct.Weight}
                       </li>
                       )}
+
                     </ul>
                   </div>
                 </div>

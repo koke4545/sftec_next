@@ -132,7 +132,7 @@ export default function MyAccountButton() {
                 src="/img/user2.jpg"
                 width={24}
                 height={24}
-              />              
+              />
             </button>
 
             <div className="bottom-10 lg:bottom-[unset] mr-2 pt-1 pb-2 px-5 absolute z-50 bg-gray-50 opacity-0 group-hover:visible subMenu shadow-header left-0 w-48 group-hover:opacity-100 text-black">
@@ -158,12 +158,17 @@ export default function MyAccountButton() {
                 <div className="border-b border-gray-300 w-full"></div>
               </div>
               <ul className="py-2 text-sm text-body">
-                <li className="group relative py-2 cursor-pointer">
-                  <Link href={`/myorders/?distributorid=${currentDistributor?.param_distributorCodeId || ''}`}
-                    className="flex items-center py-2 ltr:pl-5 rtl:pr-5 ltr:xl:pl-7 rtl:xl:pr-7 ltr:pr-3 rtl:pl-3 ltr:xl:pr-3.5 rtl:xl:pl-3.5 hover:text-heading hover:bg-gray-300">
-                    <span style={{ paddingLeft: '10px' }}>Orders</span>
-                  </Link>
-                </li>
+                {
+                  userSession?.SessionId && (
+                    <li className="group relative py-2 cursor-pointer">
+                      <Link href={`/myorders/?distributorid=${currentDistributor?.param_distributorCodeId || ''}&sessionid=${userSession?.SessionId || ''}`}
+                        className="flex items-center py-2 ltr:pl-5 rtl:pr-5 ltr:xl:pl-7 rtl:xl:pr-7 ltr:pr-3 rtl:pl-3 ltr:xl:pr-3.5 rtl:xl:pl-3.5 hover:text-heading hover:bg-gray-300">
+                        <span style={{ paddingLeft: '10px' }}>Orders</span>
+                      </Link>
+                    </li>
+                  )
+                }
+
                 <li className="group relative py-2 cursor-pointer" onClick={handleOpenAccountDetail}>
                   <div
                     className="flex items-center py-2 ltr:pl-5 rtl:pr-5 ltr:xl:pl-7 rtl:xl:pr-7 ltr:pr-3 rtl:pl-3 ltr:xl:pr-3.5 rtl:xl:pl-3.5 hover:text-heading hover:bg-gray-300">

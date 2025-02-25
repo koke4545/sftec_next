@@ -23,7 +23,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                 {dataModel.responseData_Sft_GetOrders.map((order:any) => (
                                     <tr key={order.OrderId} className="text-center text-sm md:text-base border-b">
                                         <td className="p-2 py-4 truncate max-w-[120px] underline">
-                                            <Link href={`/ordersummary/${order.OrderId}?myorders=1&distributorid=${dataModel.searchParams.distributorid || ''}`}>
+                                        <Link href={`/ordersummary/${order.OrderId}?myorders=1&distributorid=${dataModel.searchParams.distributorid || ''}&&sessionid=${dataModel.searchParams?.sessionid || ''}`}>
                                                 #{order.OrderId}
                                             </Link>                                            
                                         </td>
@@ -31,7 +31,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                         <td className="p-2 py-4">{order.OrderStatus}</td>
                                         <td className="p-2 py-4">${order.TotalAfterTax}</td>
                                         <td className="p-2 py-4">
-                                            <Link href={`/ordersummary/${order.OrderId}?myorders=1&distributorid=${dataModel.searchParams.distributorid || ''}`}>
+                                            <Link href={`/ordersummary/${order.OrderId}?myorders=1&distributorid=${dataModel.searchParams.distributorid || ''}&&sessionid=${dataModel.searchParams?.sessionid || ''}`}>
                                                 <button className="px-3 py-1 bg-black text-white rounded hover:bg-gray-600 text-xs md:text-sm">
                                                     View
                                                 </button>
