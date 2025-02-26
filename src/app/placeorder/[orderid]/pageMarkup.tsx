@@ -225,7 +225,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                                 </h6>
                                                 <div className="flex ml-auto rtl:mr-auto text-heading text-sm pl-2 rtl:pr-2 flex-shrink-0">
                                                     
-                                                   <DistributorCurrencyCode/> ${parseFloat(orderItem.ItemGrandTotal || 0).toFixed(2)}  
+                                                   <DistributorCurrencyCode/><span className="pl-1">${parseFloat(orderItem.ItemGrandTotal || 0).toFixed(2)}</span>
                                                 </div>
                                             </div>
                                         ))}
