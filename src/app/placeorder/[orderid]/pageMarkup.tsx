@@ -205,7 +205,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                                 Product
                                             </span>
                                             <span className="ml-auto rtl:mr-auto flex-shrink-0">
-                                                Subtotal
+                                                Subtotal (<DistributorCurrencyCode/>)
                                             </span>
                                         </div>
 
@@ -225,7 +225,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                                 </h6>
                                                 <div className="flex ml-auto rtl:mr-auto text-heading text-sm pl-2 rtl:pr-2 flex-shrink-0 font-semibold">
                                                     
-                                                   <DistributorCurrencyCode/><span className="pl-1">${parseFloat(orderItem.ItemGrandTotal || 0).toFixed(2)}</span>
+                                                   ${parseFloat(orderItem.ItemGrandTotal || 0).toFixed(2)}
                                                 </div>
                                             </div>
                                         ))}
@@ -235,7 +235,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                             Subtotal
                                             <span className="ml-auto rtl:mr-auto flex-shrink-0">
                                                 
-                                            <DistributorCurrencyCode/> ${parseFloat(dataModel.responseData_SftGetOrderById.ItemsSubTotal || 0).toFixed(2)}  
+                                            ${parseFloat(dataModel.responseData_SftGetOrderById.ItemsSubTotal || 0).toFixed(2)}  
                                             </span>
                                         </div>
                                         {
@@ -243,7 +243,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                                 <div className="flex items-center py-4 lg:py-5 border-b border-gray-300 text-sm lg:px-3 w-full font-semibold text-heading last:border-b-0 last:text-base last:pb-0">
                                                     Shipping
                                                     <span className="ml-auto rtl:mr-auto flex-shrink-0">
-                                                    <DistributorCurrencyCode/> ${parseFloat(dataModel.responseData_SftGetOrderById.FinalShippingCost_30871 || 0).toFixed(2)}  
+                                                    ${parseFloat(dataModel.responseData_SftGetOrderById.FinalShippingCost_30871 || 0).toFixed(2)}  
                                                     </span>
                                                 </div>
                                             )
@@ -252,7 +252,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                             Tax
                                             <span className="ml-auto rtl:mr-auto flex-shrink-0">
                                                 
-                                            <DistributorCurrencyCode/> ${parseFloat(dataModel.responseData_SftGetOrderById.TotalTax || 0).toFixed(2)}  
+                                            ${parseFloat(dataModel.responseData_SftGetOrderById.TotalTax || 0).toFixed(2)}  
                                                 
                                             </span>
                                         </div>
@@ -261,7 +261,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                             <div className="ml-auto rtl:mr-auto flex-shrink-0">
                                                 <div className="text-right" style={{ textAlign: 'right' }}>
                                                    
-                                                <DistributorCurrencyCode/> ${parseFloat(dataModel.responseData_SftGetOrderById.TotalAfterTax || 0).toFixed(2)}  
+                                                ${parseFloat(dataModel.responseData_SftGetOrderById.TotalAfterTax || 0).toFixed(2)}  
                                                 </div>
                                                 {
                                                     dataModel.responseData_SftGetOrderById.TotalAfterTaxOnClientCurrency && dataModel.responseData_SftGetOrderById.ClientCurrency && (
