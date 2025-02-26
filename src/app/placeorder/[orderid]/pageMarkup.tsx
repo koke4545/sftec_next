@@ -2,6 +2,7 @@
 import AppStripePayment from "@/components/AppStripePayment";
 import Link from "next/link";
 import DistributorIdHiddenInputBox from "@/components/DistributorIdHiddenInputBox";
+import DistributorCurrencyCode from "@/components/DistributorCurrencyCode";
 import MultiItemSelector from "@/components/MultiItemSelector";
 import Image from "next/image";
 
@@ -19,19 +20,19 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
             {
                 !dataModel.responseData_SftGetOrderById.OrderStatus && (
                     <div>
-                        <div className="flex justify-center p-6 md:p-10 2xl:p-8 relative bg-no-repeat bg-center bg-cover" style={{ backgroundImage: 'url(/img/background12.png)' }}>
-                            <div className="absolute top-0 left-0 rtl:right-0 bg-black w-full h-full opacity-30 transition-opacity duration-500 group-hover:opacity-80">
+                        <div className="w-full h-[320px] relative">
+                            <Image width={1920} height={320} alt="" src="/img/background12.png" className="w-full h-full bg-cover object-cover"></Image>
+                            <div className="absolute inset-0 bg-black w-full h-full opacity-30 transition-opacity duration-500 group-hover:opacity-80">
                             </div>
-                            <div className="w-full flex items-center justify-center relative z-10 py-10 md:py-14 lg:py-20 xl:py-24 2xl:py-32">
+                            <div className="absolute inset-0 w-full flex items-center justify-center">
                                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white text-center">
-
                                     <span className="">
                                         Checkout
                                     </span>
-
                                 </h2>
                             </div>
                         </div>
+
 
                         <div className="mx-auto max-w-[1920px] px-4 md:px-8 2xl:px-16">
                             <div className="py-14 xl:py-20 px-0 2xl:max-w-screen-2xl xl:max-w-screen-xl mx-auto flex flex-col md:flex-row w-full">
@@ -57,8 +58,8 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                                             Delivery Method
                                                         </label>
                                                         <div className="w-full" data-transfieldid="30684">
-                                                            
-                                                            <MultiItemSelector inputname="dataModel.responseData_SftGetOrderById.DeliveryMethod" items={dataModel.responseData_SftGetOrderById.LookupItems.SftDeliveryMethod} defaultvalue={1}/>
+
+                                                            <MultiItemSelector inputname="dataModel.responseData_SftGetOrderById.DeliveryMethod" items={dataModel.responseData_SftGetOrderById.LookupItems.SftDeliveryMethod} defaultvalue={1} />
 
                                                             {/* <div className="flex" style={{ columnGap: '10px' }}>
                                                                 <div className="flex-auto" style={{ width: '50%' }}>
@@ -175,7 +176,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                                 <label className="block text-gray-600 font-semibold text-sm leading-none mb-3">
                                                     Order Notes (Optional)
                                                 </label>
-                                                <textarea id="note" defaultValue={dataModel.responseData_SftGetOrderById.OrderNotes} name="dataModel.responseData_SftGetOrderById.OrderNotes" className="px-4 py-3 flex items-center w-full rounded appearance-none transition duration-300 ease-in-out text-heading text-sm focus:outline-none focus:ring-0 bg-white border border-gray-300 focus:shadow focus:border-heading placeholder-body" 
+                                                <textarea id="note" defaultValue={dataModel.responseData_SftGetOrderById.OrderNotes} name="dataModel.responseData_SftGetOrderById.OrderNotes" className="px-4 py-3 flex items-center w-full rounded appearance-none transition duration-300 ease-in-out text-heading text-sm focus:outline-none focus:ring-0 bg-white border border-gray-300 focus:shadow focus:border-heading placeholder-body"
                                                     rows={4} placeholder="Notes about your order, e.g. special notes for delivery">
                                                 </textarea>
                                             </div>
@@ -207,23 +208,24 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                                 Subtotal
                                             </span>
                                         </div>
-                                        
+
                                         {/* ng-repeat="orderItemObj in dataModel.currentFormData.DictOneToManyFields['11456']" */}
-                                        {dataModel.responseData_SftGetOrderById.SftOrderDetail.map((orderItem: any, index:any) => (
+                                        {dataModel.responseData_SftGetOrderById.SftOrderDetail.map((orderItem: any, index: any) => (
                                             <div key={index} className="flex gap-5 py-4 items-center lg:px-3 border-b border-gray-300">
                                                 <div className="flex border rounded-md border-gray-300 w-16 h-16 flex-shrink-0 relative">
-                                                <Image width={800} height={600} alt="" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetRegularImage.aspx?FileId=${orderItem.ProductImageId}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} className="object-cover bg-gray-300" style={{ position: 'absolute', inset: '0px', boxSizing: 'border-box', padding: '0px', border: 'none', margin: 'auto', display: 'block', width: '0px', height: '0px', minWidth: '100%', maxWidth: '100%', minHeight: '100%', maxHeight: '100%' }} />
+                                                    <Image width={800} height={600} alt="" src={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}GetRegularImage.aspx?FileId=${orderItem.ProductImageId}&CurrentUserSessionId=6601508d-e7e0-4ed6-892b-879c834676af`} className="object-cover bg-gray-300" style={{ position: 'absolute', inset: '0px', boxSizing: 'border-box', padding: '0px', border: 'none', margin: 'auto', display: 'block', width: '0px', height: '0px', minWidth: '100%', maxWidth: '100%', minHeight: '100%', maxHeight: '100%' }} />
                                                 </div>
                                                 <h6 className="text-sm pl-3 rtl:pr-3 font-regular text-heading">
-                                                    {dataModel.responseData_SftGetOrderById.LookupItems.SftProduct?.find((o:any) => o.Id == orderItem.ProductId)?.Display}
-                                                    
+                                                    {dataModel.responseData_SftGetOrderById.LookupItems.SftProduct?.find((o: any) => o.Id == orderItem.ProductId)?.Display}
+
                                                     <span className="px-2">
                                                         ×
                                                     </span>
                                                     {orderItem.ItemQty}
                                                 </h6>
                                                 <div className="flex ml-auto rtl:mr-auto text-heading text-sm pl-2 rtl:pr-2 flex-shrink-0">
-                                                    ${orderItem.ItemGrandTotal}
+                                                    
+                                                   <DistributorCurrencyCode/> ${parseFloat(orderItem.ItemGrandTotal || 0).toFixed(2)}  
                                                 </div>
                                             </div>
                                         ))}
@@ -232,7 +234,8 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                         <div className="flex gap-5 items-center py-4 lg:py-5 border-b border-gray-300 text-sm lg:px-3 w-full font-semibold text-heading last:border-b-0 last:text-base last:pb-0">
                                             Subtotal
                                             <span className="ml-auto rtl:mr-auto flex-shrink-0">
-                                                ${dataModel.responseData_SftGetOrderById.ItemsSubTotal}
+                                                
+                                            <DistributorCurrencyCode/> ${parseFloat(dataModel.responseData_SftGetOrderById.ItemsSubTotal || 0).toFixed(2)}  
                                             </span>
                                         </div>
                                         {
@@ -240,7 +243,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                                 <div className="flex items-center py-4 lg:py-5 border-b border-gray-300 text-sm lg:px-3 w-full font-semibold text-heading last:border-b-0 last:text-base last:pb-0">
                                                     Shipping
                                                     <span className="ml-auto rtl:mr-auto flex-shrink-0">
-                                                         ${dataModel.responseData_SftGetOrderById.FinalShippingCost_30871}
+                                                    <DistributorCurrencyCode/> ${parseFloat(dataModel.responseData_SftGetOrderById.FinalShippingCost_30871 || 0).toFixed(2)}  
                                                     </span>
                                                 </div>
                                             )
@@ -248,22 +251,25 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                         <div className="flex gap-5 items-center py-4 lg:py-5 border-b border-gray-300 text-sm lg:px-3 w-full font-semibold text-heading last:border-b-0 last:text-base last:pb-0">
                                             Tax
                                             <span className="ml-auto rtl:mr-auto flex-shrink-0">
-                                                 ${dataModel.responseData_SftGetOrderById.TotalTax}
+                                                
+                                            <DistributorCurrencyCode/> ${parseFloat(dataModel.responseData_SftGetOrderById.TotalTax || 0).toFixed(2)}  
+                                                
                                             </span>
                                         </div>
                                         <div className="flex gap-5 items-center py-4 lg:py-5 border-b border-gray-300 text-sm lg:px-3 w-full font-semibold text-heading last:border-b-0 last:text-base last:pb-0">
                                             Total
                                             <div className="ml-auto rtl:mr-auto flex-shrink-0">
                                                 <div className="text-right" style={{ textAlign: 'right' }}>
-                                                     ${dataModel.responseData_SftGetOrderById.TotalAfterTax}
+                                                   
+                                                <DistributorCurrencyCode/> ${parseFloat(dataModel.responseData_SftGetOrderById.TotalAfterTax || 0).toFixed(2)}  
                                                 </div>
-                                                {/* {
+                                                {
                                                     dataModel.responseData_SftGetOrderById.TotalAfterTaxOnClientCurrency && dataModel.responseData_SftGetOrderById.ClientCurrency && (
                                                         <div className="text-right text-sm text-gray-400 pt-2">
                                                             Approximately  {dataModel.responseData_SftGetOrderById.ClientCurrency} ${dataModel.responseData_SftGetOrderById.TotalAfterTaxOnClientCurrency}
                                                         </div>
                                                     )
-                                                } */}
+                                                }
                                             </div>
                                         </div>
                                     </div>

@@ -15,7 +15,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                     <th className="p-2 py-3 whitespace-nowrap">Order ID</th>
                                     <th className="p-2 py-3 whitespace-nowrap">Place Date</th>
                                     <th className="p-2 py-3 whitespace-nowrap">Status</th>
-                                    <th className="p-2 py-3 whitespace-nowrap">Total ($)</th>
+                                    <th className="p-2 py-3 whitespace-nowrap">Total</th>
                                     <th className="p-2 py-3 whitespace-nowrap">Actions</th>
                                 </tr>
                             </thead>
@@ -29,7 +29,10 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                         </td>
                                         <td className="p-2 py-4">{order.PlacedDate}</td>
                                         <td className="p-2 py-4">{order.OrderStatus}</td>
-                                        <td className="p-2 py-4">${order.TotalAfterTax}</td>
+                                        <td className="p-2 py-4">
+                                            {order.DistributorCurrency || ''} ${parseFloat(order.TotalAfterTax || 0).toFixed(2)}
+                                            
+                                            </td>
                                         <td className="p-2 py-4">
                                             <Link href={`/ordersummary/${order.OrderId}?myorders=1&distributorid=${dataModel.searchParams.distributorid || ''}&&sessionid=${dataModel.searchParams?.sessionid || ''}`}>
                                                 <button className="px-3 py-1 bg-black text-white rounded hover:bg-gray-600 text-xs md:text-sm">

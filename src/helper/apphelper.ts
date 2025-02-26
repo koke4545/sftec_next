@@ -80,6 +80,11 @@ const appHelper = {
         return Math.round(amount * factor);
     },
 
+    formatDateString: function(dateStr: string)
+    {
+
+    }
+
 };
 
 export default appHelper;

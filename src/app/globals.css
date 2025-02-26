@@ -188,5 +188,10 @@
   width: auto;
 }
 
+.disable-hover .megaMenu, 
+.disable-hover .dropdown-menu {
+  visibility: hidden;
+  display: none;
+}
 
 /* Dropdwon Menu End */

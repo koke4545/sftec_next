@@ -22,26 +22,23 @@ export const metadata: Metadata = {
 const Home = async ({ searchParams }: any) => {
 
   const dataService = createDataService();
-  const headersList = headers();    
+  const headersList = headers();
 
   const dataModel: { [key: string]: any } = appHelper.initializePageDataModel('Home', null, searchParams, headersList);
 
   /* Start of Mgt Get Api Call */
 
+  {
+    const apiResult_Sft_Category1List = await dataService.callMgtGetApiByCode('Sft_Category1List', {}, { isUseCache: false });
 
+    if (apiResult_Sft_Category1List.success) {
+      dataModel.responseData_Sft_Category1List = apiResult_Sft_Category1List.data || [];
 
-{
- 
-     const apiResult_Sft_Category1List = await dataService.callMgtGetApiByCode('Sft_Category1List', {  }, {isUseCache: false});
-     
-     if (apiResult_Sft_Category1List.success) {
-       dataModel.responseData_Sft_Category1List = apiResult_Sft_Category1List.data || [];
-      
-       //console.log(dataModel.responseData_Sft_Category1List);
-     }
-}
+      //console.log(dataModel.responseData_Sft_Category1List);
+    }
+  }
 
-/* End of Mgt Get Api Call */
+  /* End of Mgt Get Api Call */
 
 
   /* Start of Mgt Post Api Call */
@@ -69,16 +66,16 @@ const Home = async ({ searchParams }: any) => {
 
   metadata.openGraph = {
     title: metadata.title,
-    description: metadata.description,   
+    description: metadata.description,
     images: [],
-  };  
-  
+  };
+
   /*** Start of metadata.openGraph.url ***/
   metadata.openGraph.url = ``;
   /*** End of metadata.openGraph.url ***/
 
   return (
-    <div>   
+    <div>
       <PageMarkup dataModel={dataModel} />
     </div>
   );

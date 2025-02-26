@@ -1,19 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
+import { format } from "date-fns";
 
 export default function PageMarkup({ dataModel }: { dataModel: any }) {
     return (
     /* Start of NextJs Page Layout */<>
-            <div className="flex justify-center p-6 md:p-10 2xl:p-8 relative bg-no-repeat bg-center bg-cover" style={{ backgroundImage: 'url(/img/background12.png)' }}>
-                <div className="absolute top-0 left-0 rtl:right-0 bg-black w-full h-full opacity-30 transition-opacity duration-500 group-hover:opacity-80">
+            <div className="w-full h-[320px] relative">
+                <Image width={1920} height={320} alt="" src="/img/background12.png" className="w-full h-full bg-cover object-cover"></Image>
+                <div className="absolute inset-0 bg-black w-full h-full opacity-30 transition-opacity duration-500 group-hover:opacity-80">
                 </div>
-                <div className="w-full flex items-center justify-center relative z-10 py-10 md:py-14 lg:py-20 xl:py-24 2xl:py-32">
+                <div className="absolute inset-0 w-full flex items-center justify-center">
                     <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white text-center">
-
                         <span className="">
                             Order
                         </span>
-
                     </h2>
                 </div>
             </div>
@@ -88,7 +88,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                             <span className="uppercase text-[11px] block text-body font-normal leading-5">
                                 Date:
                             </span>
-                            {dataModel.responseData_SftGetOrderById?.PlacedDate}
+                            {format(new Date(dataModel.responseData_SftGetOrderById?.PlacedDate), "yyyy-MM-dd HH:mm")}
                         </li>
                         <li className="text-heading font-semibold text-base lg:text-lg border-b md:border-b-0 md:border-r border-dashed border-gray-300 px-4 lg:px-6 xl:px-8 py-4 md:py-5 lg:py-6 last:border-0">
                             <span className="uppercase text-[11px] block text-body font-normal leading-5">
@@ -100,7 +100,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                             <span className="uppercase text-[11px] block text-body font-normal leading-5">
                                 Total:
                             </span>
-                            {dataModel.responseData_SftGetOrderById?.TotalAfterTax}
+                            {dataModel.responseData_SftGetOrderById?.DistributorCurrency} ${parseFloat(dataModel.responseData_SftGetOrderById?.TotalAfterTax || 0).toFixed(2)}                            
                         </li>
                     </ul>
                     <p className="text-heading text-sm md:text-base mb-8">
@@ -125,7 +125,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                 Product
                             </span>
                             <span className="ml-auto rtl:mr-auto flex-shrink-0">
-                                Total
+                                Total ({dataModel.responseData_SftGetOrderById?.DistributorCurrency || '$'})
                             </span>
                         </div>
 
@@ -144,7 +144,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                     {orderItem.ItemQty}
                                 </h6>
                                 <div className="flex ml-auto rtl:mr-auto text-heading text-sm pl-2 rtl:pr-2 flex-shrink-0">
-                                    ${orderItem.ItemGrandTotal}
+                                    ${parseFloat(orderItem.ItemGrandTotal || 0).toFixed(2)}
                                 </div>
                             </div>
                         ))}
@@ -153,30 +153,31 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                         <div className="flex gap-5 items-center py-4 lg:py-5 border-b border-gray-300 text-sm lg:px-3 w-full font-semibold text-heading last:border-b-0 last:text-base last:pb-0">
                             Subtotal
                             <span className="ml-auto rtl:mr-auto flex-shrink-0">
-                                ${dataModel.responseData_SftGetOrderById.ItemsSubTotal}
+                               
+                                ${parseFloat(dataModel.responseData_SftGetOrderById.ItemsSubTotal || 0).toFixed(2)}
                             </span>
                         </div>
                         {
                             dataModel.responseData_SftGetOrderById.DeliveryMethod == 2 && (
                                 <div className="flex items-center py-4 lg:py-5 border-b border-gray-300 text-sm lg:px-3 w-full font-semibold text-heading last:border-b-0 last:text-base last:pb-0">
                                     Shipping
-                                    <span className="ml-auto rtl:mr-auto flex-shrink-0">
-                                        ${dataModel.responseData_SftGetOrderById.FinalShippingCost_30871}
+                                    <span className="ml-auto rtl:mr-auto flex-shrink-0">                                    
+                                        ${parseFloat(dataModel.responseData_SftGetOrderById.FinalShippingCost_30871 || 0).toFixed(2)}                                     
                                     </span>
                                 </div>
                             )
                         }
                         <div className="flex gap-5 items-center py-4 lg:py-5 border-b border-gray-300 text-sm lg:px-3 w-full font-semibold text-heading last:border-b-0 last:text-base last:pb-0">
                             Tax
-                            <span className="ml-auto rtl:mr-auto flex-shrink-0">
-                                ${dataModel.responseData_SftGetOrderById.TotalTax}
+                            <span className="ml-auto rtl:mr-auto flex-shrink-0">                                
+                                ${parseFloat(dataModel.responseData_SftGetOrderById.TotalTax || 0).toFixed(2)}
                             </span>
                         </div>
                         <div className="flex gap-5 items-center py-4 lg:py-5 border-b border-gray-300 text-sm lg:px-3 w-full font-semibold text-heading last:border-b-0 last:text-base last:pb-0">
                             Total
                             <div className="ml-auto rtl:mr-auto flex-shrink-0">
-                                <div className="text-right" style={{ textAlign: 'right' }}>
-                                    ${dataModel.responseData_SftGetOrderById.TotalAfterTax}
+                                <div className="text-right" style={{ textAlign: 'right' }}>                                   
+                                    ${parseFloat(dataModel.responseData_SftGetOrderById.TotalAfterTax || 0).toFixed(2)}
                                 </div>
                             </div>
                         </div>
