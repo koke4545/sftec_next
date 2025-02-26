@@ -223,7 +223,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                                     </span>
                                                     {orderItem.ItemQty}
                                                 </h6>
-                                                <div className="flex ml-auto rtl:mr-auto text-heading text-sm pl-2 rtl:pr-2 flex-shrink-0">
+                                                <div className="flex ml-auto rtl:mr-auto text-heading text-sm pl-2 rtl:pr-2 flex-shrink-0 font-semibold">
                                                     
                                                    <DistributorCurrencyCode/><span className="pl-1">${parseFloat(orderItem.ItemGrandTotal || 0).toFixed(2)}</span>
                                                 </div>
