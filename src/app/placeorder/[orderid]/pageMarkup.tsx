@@ -268,7 +268,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                                         <div className="text-right text-sm text-gray-400 pt-2">
                                                             Approximately  {dataModel.responseData_SftGetOrderById.ClientCurrency} ${dataModel.responseData_SftGetOrderById.TotalAfterTaxOnClientCurrency}
                                                         </div>
-                                                    )
+                                                    ) || ''
                                                 }
                                             </div>
                                         </div>
