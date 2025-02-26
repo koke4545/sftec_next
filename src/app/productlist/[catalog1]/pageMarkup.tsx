@@ -61,7 +61,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                          <span className="">
                           {loopItemObj.CurrencyCode || ''} ${loopItemObj.UnitPriceOnDistributorCurrency} {
                                         loopItemObj.PriceUnit && (
-                                          <span class="text-sm text-gray-400">
+                                          <span className="text-sm text-gray-400">
                                             / {loopItemObj.PriceUnit}
                                           </span>
                                         )
