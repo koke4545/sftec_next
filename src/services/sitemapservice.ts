@@ -19,11 +19,13 @@ export const getFolderRoutes = async (): Promise<RouteInfo[]> => {
       const fullPath = path.join(dir, entry.name);
 
       if (entry.isDirectory()) {
-        const route = path.join(basePath, entry.name);
-        directories.push({ route, level });
+        if (entry.name != 'api') {
+          const route = path.join(basePath, entry.name);
+          directories.push({ route, level });
 
-        // Recursively get directories within the current directory
-        directories.push(...getDirectoriesRecursively(fullPath, route, level + 1));
+          // Recursively get directories within the current directory
+          directories.push(...getDirectoriesRecursively(fullPath, route, level + 1));
+        }
       }
     }
 

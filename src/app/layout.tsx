@@ -28,6 +28,21 @@ export default function RootLayout({
             rel="stylesheet"
           />
         ))}
+
+        <title>High-quality fiberglass reinforced polymer rebar - SFTec Inc.</title>
+        <meta name="description" content="High-quality fiberglass reinforced polymer rebar for concrete reinforcement. A non-corrosive alternative to steel reinforcement."/>
+
+
+
+        <meta property="og:title" content="High-quality fiberglass reinforced polymer rebar - SFTec Inc."/>
+        <meta property="og:description" content="High-quality fiberglass reinforced polymer rebar for concrete reinforcement. A non-corrosive alternative to steel reinforcement."/>
+        <meta property="og:url" content="https://sftec-next.vercel.app/"/>
+        <meta property="og:site_name" content="SFTec Inc."/>
+        <meta property="og:image" content="https://sftec-next.vercel.app/img/sftLogo2.jpg"/>
+        <meta property="og:image:width" content="500"/>
+        <meta property="og:image:height" content="243"/>
+        <meta property="og:image:type" content="image/jpg"/>
+
       </head>
 
       <AppContextProvider>
