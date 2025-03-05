@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useAppContext } from '@/contexts/AppContextProvider';
 import { callMgtGetApiByCode, callMgtPostApiByCode, ExecuteOneTransactionCommonadById } from '@/services/mgtdataservice';
 
-const SendMessagePopup = ({ onClose, productid }: { onClose: any, productid: any }) => {
+const SendMessagePopup = ({ onClose, productid, productname }: { onClose: any, productid: any, productname:any }) => {
 
     const appContext = useAppContext();
     const eCommerceModel = appContext.eCommerceModel;
@@ -32,8 +32,9 @@ const SendMessagePopup = ({ onClose, productid }: { onClose: any, productid: any
             let payloadData = {
                 "ClientName": formData.clientName,
                 "ClientEmail": formData.clientEmail,
+                "ClientPhone": formData.clientPhone || null,
                 "ProductId": productid || null,
-                "ProductName": '',
+                "ProductName": productname || '',
                 "DitributorId": currentDistributor.AppBusinessPartnerID || null,
                 "DitributorName": currentDistributor.Code || null,
                 "ToEmail": currentDistributor.ContactFax,

@@ -2,6 +2,8 @@ import MyAccountButton from "@/components/MyAccountButton";
 import ShoppingCartButton from "@/components/ShoppingCartButton";
 import HomeButton from "@/components/HomeButton";
 import MobileCategoryButton from "./MobileCategoryButton";
+import Link from "next/link";
+
 const Footer = () => {
   return (
     <div className="">
@@ -98,9 +100,9 @@ const Footer = () => {
               </h4>
               <ul className="text-xs lg:text-sm text-body flex flex-col space-y-3 lg:space-y-3.5">
                 <li className="flex items-baseline">
-                  <a ng-click="goToPageByRouteCode('AboutUs')" className="transition-colors duration-200 hover:text-black cursor-pointer">
+                  <Link href="/aboutus" className="transition-colors duration-200 hover:text-black cursor-pointer">
                     About Us
-                  </a>
+                  </Link>
                 </li>
                 <li className="flex items-baseline">
                   <a href="https://sftec.com/news/" target="_blank" className="transition-colors duration-200 hover:text-black">
@@ -121,23 +123,23 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="flex items-baseline">
-                  <a ng-click="goToPageByRouteCode('ShippingPolicy')" className="transition-colors duration-200 hover:text-black cursor-pointer">
+                <Link href="/shippingdelivery" className="transition-colors duration-200 hover:text-black cursor-pointer">
                     Shipping
                     &
                     Delivery
-                  </a>
+                  </Link>
                 </li>
                 <li className="flex items-baseline">
-                  <a ng-click="goToPageByRouteCode('ReturnPolicy')" className="transition-colors duration-200 hover:text-black cursor-pointer">
+                  <Link href="/returnexchanges" className="transition-colors duration-200 hover:text-black cursor-pointer">
                     Return
                     &
                     Exchanges
-                  </a>
+                  </Link>
                 </li>
                 <li className="flex items-baseline">
-                  <a ng-click="goToPageByRouteCode('CustomerSupport')" className="transition-colors duration-200 hover:text-black cursor-pointer">
+                  <Link href="/customersupport" className="transition-colors duration-200 hover:text-black cursor-pointer">
                     Customer Support
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -147,28 +149,28 @@ const Footer = () => {
               </h4>
               <ul className="text-xs lg:text-sm text-body flex flex-col space-y-3 lg:space-y-3.5">
                 <li className="flex items-baseline">
-                  <a ng-click="goToPageByRouteCode('PrivacyPolicy')" className="transition-colors duration-200 hover:text-black cursor-pointer">
+                  <Link href="/privacypolicy" className="transition-colors duration-200 hover:text-black cursor-pointer">
                     Privacy & Security Policy Update
-                  </a>
+                  </Link>
                 </li>
-                <li ng-click="goToPageByRouteCode('TermCondition')" className="flex items-baseline">
-                  <a className="transition-colors duration-200 hover:text-black cursor-pointer">
+                <li className="flex items-baseline">
+                  <Link href="/termscondition" className="transition-colors duration-200 hover:text-black cursor-pointer">
                     Terms & Conditions
-                  </a>
+                  </Link>
                 </li>
-                <li ng-click="goToPageByRouteCode('Commitment')" className="flex items-baseline">
-                  <a className="transition-colors duration-200 hover:text-black cursor-pointer">
+                <li className="flex items-baseline">
+                  <Link href="/productsservices" className="transition-colors duration-200 hover:text-black cursor-pointer">
                     Commitment to Quality products & services
-                  </a>
+                  </Link>
                 </li>
-                <li ng-click="goToPageByRouteCode('Disclaimer')" className="flex items-baseline">
-                  <a className="transition-colors duration-200 hover:text-black cursor-pointer">
+                <li className="flex items-baseline">
+                  <Link href="/disclaimer" className="transition-colors duration-200 hover:text-black cursor-pointer">
                     Disclaimer
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
-            <div className="pb-3 md:pb-0 undefined">
+            {/* <div className="pb-3 md:pb-0 undefined">
               <h4 className="mb-5 text-sm font-semibold text-heading md:text-base xl:text-lg 2xl:mb-6 3xl:mb-7">
                 Set-up your account
               </h4>
@@ -179,7 +181,7 @@ const Footer = () => {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="pt-5 pb-16 mb-2 border-t border-gray-300 sm:pb-20 md:pb-5 sm:mb-0">

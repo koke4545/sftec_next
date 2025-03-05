@@ -115,10 +115,10 @@ const Header = async () => {
                     </div>
                 </div>
             </div>
-            <div className="headerMenu flex hidden lg:flex w-full relative uppercase 2xl:gap-x-3 h-15 pt-0.5" style={{ backgroundColor: '#54AC5B', paddingLeft: '100px', fontSize: '17px', letterSpacing: '1px', userSelect: 'none' }}>
+            <div className="headerMenu flex hidden lg:flex w-full relative uppercase gap-x-0 xl:gap-x-3 h-15 pt-0.5 lg:pl-10 xl:pl-[100px]" style={{ backgroundColor: '#54AC5B', fontSize: '17px', letterSpacing: '1px', userSelect: 'none' }}>
 
                 <DropdownMenu childMenuData={allCategoryList}>
-                    <div className="relative inline-flex items-center px-3 py-2 text-white">
+                    <div className="relative inline-flex items-center px-3 py-2 text-white text-[14px] xl:text-[15px] 2xl:text-[17px]">
                         <FontAwesomeIcon icon={faBars} className="w-5 mr-3" />
                         All Categories
                         <span className="opacity-30 text-xs mt-1 xl:mt-0.5 w-4 flex justify-end" style={{ marginLeft: '5px' }}>
@@ -133,9 +133,9 @@ const Header = async () => {
                     topCategoryList && topCategoryList.length > 0 && (
                         topCategoryList.map((topCategoryDto: any, index: any) => {
                             return (
-                                <div className='hidden 2xl:block' key={index}>
+                                <div className='hidden lg:block' key={index}>
                                     <DropdownMenu childMenuData={topCategoryDto.Children} key={topCategoryDto.GroupId}>
-                                        <div className="relative inline-flex items-center px-3 py-2 text-white">
+                                        <div className="relative inline-flex items-center px-3 py-2 text-white text-[14px] xl:text-[15px] 2xl:text-[17px]">
                                             {topCategoryDto.GroupName}
                                             <span className="opacity-30 text-xs mt-1 xl:mt-0.5 w-4 flex justify-end" style={{ marginLeft: '5px' }}>
                                                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" className="transition duration-300 ease-in-out transform group-hover:-rotate-180" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -151,7 +151,7 @@ const Header = async () => {
                 }
 
                 <DropdownMenu childMenuData={brandList}>
-                    <div className="relative inline-flex items-center px-3 py-2 text-white">
+                    <div className="relative inline-flex items-center px-3 py-2 text-white text-[14px] xl:text-[15px] 2xl:text-[17px] hidden lg:flex">
                         BRAND
                         <span className="opacity-30 text-xs mt-1 xl:mt-0.5 w-4 flex justify-end" style={{ marginLeft: '5px' }}>
                             <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" className="transition duration-300 ease-in-out transform group-hover:-rotate-180" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -161,7 +161,7 @@ const Header = async () => {
                     </div>
                 </DropdownMenu>
 
-                <div className="menuItem group cursor-pointer py-2 hidden 2xl:block" style={{ marginRight: '30px' }}>
+                <div className="menuItem group cursor-pointer py-2 hidden 2xl:block text-[14px] xl:text-[15px] 2xl:text-[17px]" style={{ marginRight: '30px' }}>
                     <a className="relative inline-flex items-center px-3 py-2 xl:px-4 text-white"
                         href='https://sftec.com/contact-us/'
                         target='_blank'>

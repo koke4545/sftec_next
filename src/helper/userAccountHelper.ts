@@ -135,7 +135,7 @@ const userAccountHelper = {
                 userRegisterDto.PostEmailActivationRedirectUrl = window.location.origin;
 
                 if (!isBusy) {
-
+                    console.log(JSON.stringify(userRegisterDto || {}));
                     setIsBusy(true);
                     ESiteUserRegistration(userRegisterDto).then(function (resultData) {
                         setIsBusy(false);
@@ -145,10 +145,15 @@ const userAccountHelper = {
                                 setIsWaitingForEmailActivation(true);
 
                             } else if (data.ValidationResult && data.ValidationResult.LocalizedResult) {
-                                alert(data.ValidationResult.LocalizedResult);
+                                //alert(data.ValidationResult.LocalizedResult);
+                                setError({ message: data.ValidationResult.LocalizedResult });
                             }
-
-
+                        }
+                        else{
+                            if (resultData?.error) {
+                                //alert(resultData?.error);
+                                setError({ message: resultData?.error });
+                            }
                         }
                     });
                 }

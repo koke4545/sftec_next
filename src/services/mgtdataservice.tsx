@@ -110,17 +110,23 @@ export const Logout = async (sessionId: any): Promise<any> => {
 export const ESiteUserRegistration = async (userRegisterDto: any): Promise<any> => {
     try {
         let apiUrl = `${mgtBaseUrl}/webapi/ExternalUserRegistration/ESiteUserRegistration`;
+        
         const response = await fetch(apiUrl, {
             method: 'POST',
-            
+            headers: {
+                'Content-Type': 'application/json',
+                'ESiteId': esiteId,
+            },
             body: JSON.stringify(userRegisterDto || {}),
-        });
+        });      
+
 
         const resData = await response.json();
         return { success: true, data: resData || null };
 
     } catch (error) {
-        console.error(error);
+       
+        console.log(error);
         return { success: false, error: 'Failed to post data to mgt ESiteUserRegistration.' };
     }    
 };

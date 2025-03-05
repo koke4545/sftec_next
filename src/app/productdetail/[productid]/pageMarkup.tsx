@@ -140,11 +140,11 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                       ) &&
                       (
                         <div className="gap-x-4 pt-1 py-8 border-b border-gray-300">
-                          <div className="text-red-500 flex items-center pb-2">
+                          {/* <div className="text-red-500 flex items-center pb-2">
                             This Product Is Currently Unavailable
-                          </div>
+                          </div> */}
                           <div className="relative submenu-wrapper cursor-pointer py-2">
-                            <SendMesssageButton productid={dataModel.responseData_GetAppForm9787_SFTProduct.ProductId}>
+                            <SendMesssageButton productid={dataModel.responseData_GetAppForm9787_SFTProduct.ProductId} productname={dataModel.responseData_GetAppForm9787_SFTProduct.ProductName}>
                               <button className="text-[13px] md:text-sm leading-4 flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center border-0 border-transparent placeholder-white focus-visible:outline-none focus:outline-none rounded-md h-12 px-5 bg-heading text-white py-2 transform-none normal-case hover:text-white hover:bg-gray-600 hover:shadow-cart w-full md:w-6/12 xl:w-full bg-gray-400 hover:bg-gray-400" style={{ backgroundColor: '#54ac5b', borderRadius: '24px', maxWidth: '250px' }}>
                                 <span className="py-2 3xl:px-8">
                                   <i className="fa fa-phone" style={{ marginRight: '5px' }}>

@@ -3,7 +3,15 @@
 import SendMessagePopup from '@/components/SendMessagePopup';
 import { useAppContext } from '@/contexts/AppContextProvider';
 
-const SendMesssageButton = ({ children, productid }: { children: React.ReactNode; productid:any }) => {
+const SendMesssageButton = ({ 
+  children, 
+  productid, 
+  productname 
+}: { 
+  children: React.ReactNode; 
+  productid: any; 
+  productname: any; 
+}) => {
   
   const eCommerceModel = useAppContext().eCommerceModel;
 
@@ -24,7 +32,7 @@ const SendMesssageButton = ({ children, productid }: { children: React.ReactNode
       </div>
       {eCommerceModel.isSendMessagePopupVisible && (        
          
-        <SendMessagePopup onClose={handleClose} productid={productid} />      
+        <SendMessagePopup onClose={handleClose} productid={productid} productname={productname}/>      
         
       )}
     </>

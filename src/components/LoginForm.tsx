@@ -329,8 +329,8 @@ const LoginForm = ({ onClose }: { onClose: any }) => {
                                                                     </label>
                                                                 </div>
                                                             </div>
-                                                            <div className="flex items-center justify-center">
-
+                                                            <div className="flex items-center justify-center text-xs">
+                                                                {error?.message}
                                                             </div>
                                                             <div className="relative">
                                                                 <button
