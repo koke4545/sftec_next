@@ -129,7 +129,7 @@ export const ESiteUserRegistration = async (userRegisterDto: any): Promise<any> 
     } catch (error) {
        
         console.log(error);
-        return { success: false, error: 'Failed to post data to mgt ESiteUserRegistration.' };
+        return { success: false, error: 'Failed to post data to mgt ESiteUserRegistration.' + error};
     }    
 };
 

@@ -447,7 +447,7 @@ const eCommerceHelper = {
 
                 const currentUrl = new URL(window.location.href);
                 let distributorIdFromUrl = currentUrl.searchParams.get('distributorid') || '';
-                console.log('distributorIdFromUrl:' + distributorIdFromUrl);
+                //console.log('distributorIdFromUrl:' + distributorIdFromUrl);
 
                 if (distributorIdFromUrl?.indexOf("-") >= 0) {
                     distributorIdFromUrl = distributorIdFromUrl.substring(distributorIdFromUrl.lastIndexOf("-") + 1);

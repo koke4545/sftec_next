@@ -135,9 +135,10 @@ const userAccountHelper = {
                 userRegisterDto.PostEmailActivationRedirectUrl = window.location.origin;
 
                 if (!isBusy) {
-                    console.log(JSON.stringify(userRegisterDto || {}));
+                    //console.log(JSON.stringify(userRegisterDto || {}));
                     setIsBusy(true);
                     ESiteUserRegistration(userRegisterDto).then(function (resultData) {
+                        console.log(JSON.stringify(resultData));
                         setIsBusy(false);
                         let data = resultData?.data;
                         if (data) {

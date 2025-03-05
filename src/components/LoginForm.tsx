@@ -10,22 +10,22 @@ const clientProfileTransactionId = 7489;
 
 const LoginForm = ({ onClose }: { onClose: any }) => {
 
-    const appContext = useAppContext(); 
+    const appContext = useAppContext();
     const { error, setError, isBusy, setIsBusy } = appContext;
-    const [isSignUp, setIsSignUp] = useState<boolean>(false);   
+    const [isSignUp, setIsSignUp] = useState<boolean>(false);
 
-    const { 
+    const {
         userSession,
-        setUserSession,    
+        setUserSession,
         isLoginPopupVisible,
-        setIsLoginPopupVisible,       
-        isNeedToExecuteLoginCallback, 
+        setIsLoginPopupVisible,
+        isNeedToExecuteLoginCallback,
         setIsNeedToExecuteLoginCallback,
         isNeedToExecuteLogoffCallback,
         setIsNeedToExecuteLogoffCallback,
-        loginInfoDto, 
+        loginInfoDto,
         setLoginInfoDto,
-        isWaitingForEmailActivation, 
+        isWaitingForEmailActivation,
         setIsWaitingForEmailActivation,
         login,
         signUp
@@ -56,17 +56,17 @@ const LoginForm = ({ onClose }: { onClose: any }) => {
 
 
             process.env.CurrentUserSessionId = userSession.SessionId;
-          
+
 
             if (PrepareLoggedInClientShoppingCartData) {
                 PrepareLoggedInClientShoppingCartData();
-            }           
+            }
 
         }
 
     }
 
-    
+
 
     const closeAllModalPopup = () => {
         onClose();
@@ -78,7 +78,7 @@ const LoginForm = ({ onClose }: { onClose: any }) => {
 
     useEffect(() => {
         if (isNeedToExecuteLoginCallback) {
-            
+
             afterLoginCallBack(true);
 
             setIsNeedToExecuteLoginCallback(false);
@@ -122,7 +122,7 @@ const LoginForm = ({ onClose }: { onClose: any }) => {
                                     </button>
                                     <div className="h-full overflow-y-auto rounded-lg" style={{ maxHeight: 'calc(100vh - 120px)' }}>
                                         <div className="w-full px-5 py-5 mx-auto overflow-hidden bg-white border border-gray-300 rounded-lg sm:w-96 md:w-[450px] sm:px-8">
-                                            <div className="text-center mb-6 pt-2.5">                                                
+                                            <div className="text-center mb-6 pt-2.5">
                                                 <p className="mt-2 mb-8 text-sm md:text-base text-body sm:mb-10 font-bold">
                                                     Login with your email
                                                 </p>
@@ -141,7 +141,7 @@ const LoginForm = ({ onClose }: { onClose: any }) => {
                                                             placeholder=""
                                                             className="py-2 px-4 md:px-5 w-full appearance-none transition duration-150 ease-in-out border text-input text-xs lg:text-sm font-body placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12 rounded-md"
                                                             autoComplete="off"
-                                                           
+
                                                             aria-invalid="false"
                                                         />
                                                     </div>
@@ -157,7 +157,7 @@ const LoginForm = ({ onClose }: { onClose: any }) => {
                                                                 className="py-2 px-4 md:px-5 w-full appearance-none transition duration-150 ease-in-out border border-gray-500 text-input text-xs lg:text-sm font-body rounded-md placeholder-gray-600 transition duration-200 ease-in-out bg-white border border-gray-100 focus:outline-none focus:border-heading h-11 md:h-12"
                                                                 autoComplete="off"
                                                                 autoCapitalize="off"
-                                                               
+
                                                             />
                                                             <label onClick={togglePasswordVisibility} htmlFor="password" className="absolute right-4 rtl:left-4 top-5 -mt-2 text-gray-500 cursor-pointer">
                                                                 <svg
@@ -200,9 +200,9 @@ const LoginForm = ({ onClose }: { onClose: any }) => {
                                             </form>
 
                                             <div className="mt-5 mb-1 text-sm text-center sm:text-base text-body">Don&apos;t have any account?
-                                                <button type="button" onClick={() => setIsSignUp(true)} 
-                                                className="text-sm font-bold underline sm:text-base text-heading hover:no-underline focus:outline-none px-1"> 
-                                                Register</button>
+                                                <button type="button" onClick={() => setIsSignUp(true)}
+                                                    className="text-sm font-bold underline sm:text-base text-heading hover:no-underline focus:outline-none px-1">
+                                                    Register</button>
                                             </div>
                                         </div>
                                     </div>
@@ -219,7 +219,7 @@ const LoginForm = ({ onClose }: { onClose: any }) => {
 
             {
                 isSignUp && (
-                     <div className="text-black fixed inset-0 z-60">
+                    <div className="text-black fixed inset-0 z-60">
                         <div className="absolute inset-0 bg-black opacity-25"
                             // onClick={() => { onClose(); SaveCurrentUserShoppingCartData(); }}
                             onClick={onClose}
@@ -252,7 +252,7 @@ const LoginForm = ({ onClose }: { onClose: any }) => {
                                         {
                                             !isWaitingForEmailActivation && (
                                                 <div className="w-full px-5 py-5 mx-auto overflow-hidden bg-white border border-gray-300 rounded-lg sm:w-96 md:w-[450px] sm:px-8">
-                                                    <div className="text-center mb-6 pt-2.5">                                                        
+                                                    <div className="text-center mb-6 pt-2.5">
                                                         <p className="text-sm md:text-base text-body mt-2 mb-8 sm:mb-10 font-bold">
                                                             Sign Up
                                                         </p>
@@ -271,7 +271,7 @@ const LoginForm = ({ onClose }: { onClose: any }) => {
                                                                     placeholder=""
                                                                     className="py-2 px-4 md:px-5 w-full appearance-none transition duration-150 ease-in-out border text-input text-xs lg:text-sm font-body placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12 rounded-md"
                                                                     autoComplete="off"
-                                                                   
+
                                                                     aria-invalid="false"
                                                                 />
                                                             </div>
@@ -287,7 +287,7 @@ const LoginForm = ({ onClose }: { onClose: any }) => {
                                                                     placeholder=""
                                                                     className="py-2 px-4 md:px-5 w-full appearance-none transition duration-150 ease-in-out border text-input text-xs lg:text-sm font-body placeholder-body min-h-12 transition duration-200 ease-in-out bg-white border-gray-300 focus:outline-none focus:border-heading h-11 md:h-12 rounded-md"
                                                                     autoComplete="off"
-                                                                   
+
                                                                     aria-invalid="false"
                                                                 />
                                                             </div>
@@ -303,7 +303,7 @@ const LoginForm = ({ onClose }: { onClose: any }) => {
                                                                         className="py-2 px-4 md:px-5 w-full appearance-none transition duration-150 ease-in-out border border-gray-500 text-input text-xs lg:text-sm font-body rounded-md placeholder-gray-600 transition duration-200 ease-in-out bg-white border border-gray-100 focus:outline-none focus:border-heading h-11 md:h-12"
                                                                         autoComplete="off"
                                                                         autoCapitalize="off"
-                                                                       
+
                                                                     />
                                                                     <label onClick={togglePasswordVisibility} htmlFor="password" className="absolute right-4 rtl:left-4 top-5 -mt-2 text-gray-500 cursor-pointer">
                                                                         <svg
@@ -363,16 +363,38 @@ const LoginForm = ({ onClose }: { onClose: any }) => {
                                         }
 
                                     </div>
+                                    {
+                                        isBusy && (
+                                            <div className="absolute inset-0 w-full h-full bg-black opacity-20">
+                                                <div className="m-auto w-10 h-10 absolute inset-0">
+                                                    <div
+                                                        className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] text-white motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                                                        role="status"
+                                                    >
+                                                        <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                                                            Processing...
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+
+
                                 </div>
                             </div>
                         </div>
 
 
                         <div tabIndex={0} aria-hidden="true" data-sentinel="end" style={{ width: 0, height: 0, overflow: 'hidden', outline: 'none', position: 'absolute' }}></div>
+
+
                     </div>
                 )
 
             }
+
+
         </>
 
 
