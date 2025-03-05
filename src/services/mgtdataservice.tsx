@@ -111,12 +111,14 @@ export const ESiteUserRegistration = async (userRegisterDto: any): Promise<any> 
     try {
         let apiUrl = `${mgtBaseUrl}/webapi/ExternalUserRegistration/ESiteUserRegistration`;
         
+        let headerObj:any = {
+            'Content-Type': 'application/json',
+            'ESiteId': esiteId,
+        };
+
         const response = await fetch(apiUrl, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'ESiteId': esiteId,
-            },
+            headers: headerObj,
             body: JSON.stringify(userRegisterDto || {}),
         });      
 

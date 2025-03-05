@@ -27,7 +27,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                         ii. In addition, as a condition of your use of this Site, you represent and warrant that you will not use this Site for any purpose that is unlawful, immoral or prohibited by these terms, conditions and notices. If you do not agree and accept without modification the notices, terms and conditions set forth herein, do not use this Site
                                     </div>
                                     <div className="py-4">
-                                        iii. Other than this agreement and agreements between you and sftec.shop relating to the sale of products or services (collectively, "Products"), sftec.shop will not enter into any agreement with you or obligation to you through this Site and no attempt to create such an agreement or obligation will be effective.
+                                        iii. Other than this agreement and agreements between you and sftec.shop relating to the sale of products or services (collectively, &quot;Products&quot;), sftec.shop will not enter into any agreement with you or obligation to you through this Site and no attempt to create such an agreement or obligation will be effective.
                                     </div>
                                 </div>
                                 <div className="pt-3 text-lg sm:text-lg"></div>
