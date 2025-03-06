@@ -1,1 +1,1 @@
-123
+Some new file content
