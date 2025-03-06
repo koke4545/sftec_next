@@ -62,7 +62,7 @@ export default function PageMarkup({ dataModel }: { dataModel: any }) {
                                         dataModel.responseData_SftGetOrderById?.InvoiceId_30789 && (
                                             <ol className="flex items-center w-60 overflow-hidden ng-scope" ng-if="dataModel.currentFormData.DictOneToOneFields['InvoiceId_30789']">
                                                 <li className="text-sm text-body px-2.5 transition duration-200 ease-in first:pl-0 rtl:first:pr-0 last:pr-0 rtl:last:pl-0 hover:text-heading">
-                                                    <a target={`invoice_${dataModel.responseData_SftGetOrderById?.InvoiceId_30789}`} href={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}PrintView.aspx?MessageTemplateId=13433&TransactionId=9801&TransactionRId=${dataModel.responseData_SftGetOrderById?.InvoiceId_30789}&currentusersessionid=${process.env.NEXT_PUBLIC_ANONYMOUS_USER_SESSION_ID}`}
+                                                    <a target={`invoice_${dataModel.responseData_SftGetOrderById?.InvoiceId_30789}`} href={`${process.env.NEXT_PUBLIC_MGT_BASE_URL}PrintView.aspx?MessageTemplateId=13433&TransactionId=9801&TransactionRId=${dataModel.responseData_SftGetOrderById?.InvoiceId_30789}&currentusersessionid=${encodeURIComponent(process.env.NEXT_PUBLIC_ANONYMOUS_USER_SESSION_ID || '')}`}
                                                         className="underline hover:no-underline cursor-pointer">
                                                         # Invoice <i className="fa fa-print ml-2"></i>
                                                     </a>

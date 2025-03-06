@@ -2,7 +2,8 @@ import { callMgtGetApiByCode, callMgtPostApiByCode } from "./mgtdataservice";
 
 const mgtBaseUrl = `${process.env.NEXT_PUBLIC_MGT_BASE_URL}`;
 const mgtApiBaseUrl = `${process.env.NEXT_PUBLIC_MGT_BASE_URL}/webapi/DataIntegration`;
-const ANONYMOUS_SESSION_ID = process.env.NEXT_PUBLIC_ANONYMOUS_USER_SESSION_ID;
+const ANONYMOUS_SESSION_ID = process.env.NEXT_PUBLIC_ANONYMOUS_USER_SESSION_ID || '';
+
 
 
 
@@ -56,7 +57,9 @@ export function createDataService(): IDataService {
 }
 
 export function getMgtApiUrlByCode(mgtApiCode: any, dictParamNameAndValue:object) {
-    let apiUrl = `${mgtApiBaseUrl}/${mgtApiCode}?CurrentUserSessionId=${ANONYMOUS_SESSION_ID}`;
+
+    let sessionId = encodeURIComponent(ANONYMOUS_SESSION_ID || '');
+    let apiUrl = `${mgtApiBaseUrl}/${mgtApiCode}?CurrentUserSessionId=${sessionId}`;
 
     if (dictParamNameAndValue) {
         const params = Object.entries(dictParamNameAndValue)
